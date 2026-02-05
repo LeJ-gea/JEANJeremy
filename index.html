@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jeremy JEAN | Portfolio Financier & Gestion</title>
+    <meta name="description" content="Portfolio de Jeremy JEAN, alternant comptable et étudiant en BUT GEA GC2F. Expert en analyse financière et outils de gestion.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+/* =========================================
+   1. VARIABLES & RESET (DESIGN SYSTEM)
+   ========================================= */
+:root {
+    --bg-dark: #0f172a;       /* Fond principal sombre */
+    --bg-light: #F8F6F0;      /* --- MODIFICATION ICI : Blanc Perle --- */
+    --text-main: #1e293b;     /* Texte principal */
+    --text-muted: #64748b;    /* Texte secondaire */
+    
+    /* COULEURS ACCENT */
+    --primary: #1e3a8a;       /* Bleu Royal (Finance) */
+    --accent: #3b82f6;        /* Bleu Electrique (Tech/Action) */
+    --gold: #d97706;          /* Or (Prestige/Finance) */
+    
+    /* CARTES & VERRE */
+    --card-bg-light: rgba(255, 255, 255, 0.90);
+    --card-bg-dark: rgba(30, 41, 59, 0.85);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.2);
+    --shadow-soft: 0 10px 30px -5px rgba(0, 0, 0, 0.05);
+    --shadow-hover: 0 20px 40px -5px rgba(59, 130, 246, 0.15);
+
+    --header-height: 70px;
+}
+
+body.dark-mode {
+    --bg-color: var(--bg-dark);
+    --text-main: #f1f5f9;
+    --text-muted: #94a3b8;
+    --card-bg: var(--card-bg-dark);
+    --border-color: rgba(255, 255, 255, 0.1);
+}
+
+body:not(.dark-mode) {
+    --bg-color: var(--bg-light);
+    --card-bg: var(--card-bg-light);
+    --border-color: rgba(0, 0, 0, 0.05);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--bg-color);
+    color: var(--text-main);
+    transition: background 0.4s ease, color 0.4s ease;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* FOND DYNAMIQUE "FINTECH" */
+body::before {
+    content: ''; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background: 
+        radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(217, 119, 6, 0.03) 0%, transparent 40%);
+    z-index: -1; pointer-events: none;
+}
+
+/* =========================================
+   2. HEADER & NAVIGATION
+   ========================================= */
+header {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    position: fixed; top: 0; width: 100%; z-index: 1000;
+    height: var(--header-height);
+    display: flex; align-items: center;
+    transition: all 0.3s ease;
+}
+body.dark-mode header { 
+    background: rgba(15, 23, 42, 0.85); 
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+nav {
+    width: 100%; max-width: 1200px; margin: auto; padding: 0 2rem;
+    display: flex; justify-content: space-between; align-items: center;
+}
+
+.logo {
+    font-weight: 800; font-size: 1.4rem; letter-spacing: -0.5px;
+    display: flex; align-items: center; gap: 8px;
+}
+.logo i { color: var(--gold); }
+
+.nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+.nav-links a {
+    text-decoration: none; color: var(--text-main); font-weight: 600; font-size: 0.9rem;
+    text-transform: uppercase; letter-spacing: 0.5px; position: relative;
+    transition: color 0.3s; cursor: pointer;
+}
+.nav-links a::after {
+    content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px;
+    background: var(--accent); transition: width 0.3s ease;
+}
+.nav-links a:hover { color: var(--accent); }
+.nav-links a:hover::after { width: 100%; }
+
+.theme-toggle {
+    background: transparent; border: 2px solid var(--text-main);
+    color: var(--text-main); padding: 5px 10px; border-radius: 50%;
+    cursor: pointer; transition: 0.3s; width: 35px; height: 35px;
+    display: flex; align-items: center; justify-content: center;
+}
+.theme-toggle:hover { background: var(--text-main); color: var(--bg-color); transform: rotate(15deg); }
+
+/* HAMBURGER MOBILE */
+.hamburger { display: none; cursor: pointer; z-index: 1001; }
+.hamburger div { width: 25px; height: 3px; background: var(--text-main); margin: 5px; transition: 0.3s; }
+
+@media(max-width: 850px){
+    .nav-links {
+        position: fixed; right: -100%; top: 0; height: 100vh;
+        background: var(--bg-color); flex-direction: column;
+        justify-content: center; width: 80%;
+        box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+        transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .nav-links.show { right: 0; }
+    .hamburger { display: block; }
+}
+
+/* =========================================
+   3. HERO SECTION (IMPACT VISUEL)
+   ========================================= */
+.hero {
+    min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; position: relative;
+    padding-top: var(--header-height);
+    background: linear-gradient(135deg, rgba(15,23,42,0.95), rgba(30,41,59,0.98));
+    color: white; overflow: hidden;
+}
+
+.hero-bg-circle {
+    position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.4;
+    animation: float 10s infinite ease-in-out;
+}
+.c1 { width: 300px; height: 300px; background: var(--accent); top: -50px; left: -50px; animation-delay: 0s; }
+.c2 { width: 400px; height: 400px; background: var(--gold); bottom: -100px; right: -100px; animation-delay: -5s; }
+
+@keyframes float {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(20px, 30px); }
+}
+
+.hero-content { z-index: 2; position: relative; max-width: 800px; padding: 0 1.5rem; }
+
+.profile-pic-wrapper {
+    width: 200px; height: 200px; margin: 0 auto 2rem;
+    position: relative;
+}
+.profile-pic {
+    width: 100%; height: 100%; border-radius: 50%; object-fit: cover;
+    border: 4px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.4);
+    transition: transform 0.5s;
+}
+.profile-pic:hover { transform: scale(1.05); border-color: var(--accent); }
+
+.hero h1 {
+    font-size: 3.5rem; font-weight: 800; margin-bottom: 0.5rem;
+    background: linear-gradient(to right, #fff, #94a3b8);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.hero-role {
+    font-size: 1.5rem; color: var(--accent); font-weight: 600; margin-bottom: 1.5rem;
+    display: flex; justify-content: center; gap: 10px; align-items: center;
+}
+.hero p { color: #cbd5e1; font-size: 1.1rem; max-width: 600px; margin: 0 auto 2.5rem; }
+
+.btn {
+    padding: 1rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 700;
+    transition: all 0.3s; font-size: 1rem; display: inline-flex; align-items: center; gap: 10px; border: none; cursor: pointer;
+}
+.btn-primary {
+    background: var(--accent); color: white;
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+}
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(59, 130, 246, 0.6); }
+
+.btn-secondary {
+    background: rgba(255,255,255,0.05); color: white; border: 1px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(5px);
+}
+.btn-secondary:hover { background: rgba(255,255,255,0.15); border-color: white; transform: translateY(-3px); }
+
+/* =========================================
+   4. SECTIONS & CARTES
+   ========================================= */
+section { padding: 6rem 1.5rem; max-width: 1200px; margin: auto; }
+
+.section-header { text-align: center; margin-bottom: 4rem; }
+.section-title {
+    font-size: 2.2rem; font-weight: 800; margin-bottom: 1rem; position: relative; display: inline-block;
+}
+.section-title::after {
+    content: ''; display: block; width: 50px; height: 4px; background: var(--accent);
+    margin: 10px auto 0; border-radius: 2px;
+}
+.section-subtitle { font-size: 1.1rem; color: var(--text-muted); }
+
+/* Grid System */
+.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2.5rem; }
+
+/* Carte Glassmorphism Standard */
+.card {
+    background: var(--card-bg); border: 1px solid var(--border-color);
+    border-radius: 20px; padding: 2.5rem;
+    box-shadow: var(--shadow-soft); transition: all 0.3s;
+    position: relative; overflow: hidden;
+}
+.card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); border-color: var(--accent); }
+
+/* =========================================
+   5. STYLE SPÉCIFIQUE SECTION COMPÉTENCES (ORIGINAL RESTAURÉ)
+   ========================================= */
+.skills-grid { 
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 2rem; 
+}
+.skill-category {
+    background: var(--card-bg); 
+    border-radius: 16px; 
+    overflow: hidden;
+    box-shadow: var(--shadow-soft); 
+    border: 1px solid var(--border-color); /* Adapté au nouveau design */
+    transition: transform 0.3s ease;
+}
+.skill-category:hover { transform: translateY(-5px); border-color: var(--accent); }
+
+.skill-header {
+    background: var(--primary); padding: 1.5rem; color: white;
+    display: flex; justify-content: space-between; align-items: center;
+}
+.skill-header h3 { font-size: 1.1rem; margin: 0; font-weight: 700; display:flex; align-items:center; gap:10px; }
+
+.skill-body { padding: 1.5rem; }
+
+.ac-item {
+    margin-bottom: 1.2rem; padding-bottom: 1.2rem;
+    border-bottom: 1px solid var(--border-color);
+}
+.ac-item:last-child { border: none; margin: 0; padding: 0; }
+
+.ac-title { 
+    font-weight: 700; display: block; margin-bottom: 0.3rem; 
+    color: var(--text-main); font-size: 0.95rem; 
+}
+.ac-desc { 
+    font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.8rem; display: block; 
+}
+
+.btn-preuve {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 0.75rem; text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px;
+    color: var(--accent); text-decoration: none; transition: 0.2s;
+    background: rgba(59, 130, 246, 0.1); padding: 6px 12px; border-radius: 8px;
+}
+.btn-preuve:hover { background: var(--accent); color: white; }
+
+/* =========================================
+   6. EXPÉRIENCE (TIMELINE MODERNE)
+   ========================================= */
+.timeline-item {
+    position: relative; padding-left: 2.5rem; margin-bottom: 3rem;
+    border-left: 2px solid rgba(59, 130, 246, 0.2);
+}
+.timeline-item:last-child { margin-bottom: 0; border-left-color: transparent; }
+
+.timeline-dot {
+    position: absolute; left: -9px; top: 0;
+    width: 16px; height: 16px; background: var(--bg-color);
+    border: 3px solid var(--accent); border-radius: 50%;
+}
+.timeline-date {
+    display: inline-block; font-size: 0.85rem; font-weight: 700; color: var(--accent);
+    text-transform: uppercase; margin-bottom: 0.5rem; letter-spacing: 1px;
+}
+.timeline-title { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.2rem; }
+.timeline-company { font-size: 1rem; color: var(--text-muted); font-style: italic; margin-bottom: 1rem; }
+
+.task-list li {
+    margin-bottom: 0.5rem; font-size: 0.95rem; color: var(--text-muted);
+    list-style: none; position: relative; padding-left: 1.2rem;
+}
+.task-list li::before {
+    content: '▹'; color: var(--gold); position: absolute; left: 0; top: 0;
+}
+
+/* =========================================
+   7. CONTACT & FOOTER
+   ========================================= */
+.form-input {
+    width: 100%; padding: 1rem; border-radius: 12px; margin-bottom: 1.2rem;
+    border: 2px solid transparent; background: rgba(255,255,255,0.5);
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.05); font-family: inherit;
+    transition: 0.3s; color: var(--text-main);
+}
+.form-input:focus { outline: none; border-color: var(--accent); background: white; }
+
+footer {
+    background: var(--bg-dark); color: white; padding: 4rem 1.5rem 2rem;
+    margin-top: 4rem; border-top: 1px solid rgba(255,255,255,0.1);
+}
+.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; max-width: 1200px; margin: auto; }
+.footer-col h4 { color: var(--gold); margin-bottom: 1.5rem; font-size: 1.1rem; text-transform: uppercase; }
+.footer-col a { color: #94a3b8; text-decoration: none; transition: 0.3s; display: block; margin-bottom: 0.8rem; }
+.footer-col a:hover { color: white; padding-left: 5px; }
+
+/* UTILS */
+.reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
+.reveal.active { opacity: 1; transform: translateY(0); }
+.text-accent { color: var(--accent); }
+
+@media(max-width: 768px) {
+    .hero h1 { font-size: 2.2rem; }
+    .grid-2 { grid-template-columns: 1fr; }
+}
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <div class="logo"><i class="fas fa-chart-pie"></i> Jeremy JEAN</div>
+            <div class="hamburger" id="hamburger">
+                <div></div><div></div><div></div>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a onclick="navigateTo('accueil')">Accueil</a></li>
+                <li><a onclick="navigateTo('profil')">Profil</a></li>
+                <li><a onclick="navigateTo('experience')">Expérience</a></li>
+                <li><a onclick="navigateTo('apprentissage')">Compétences</a></li>
+                <li><a onclick="navigateTo('contact')">Contact</a></li>
+                <li><button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle Dark Mode"><i class="fas fa-moon"></i></button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="accueil" class="hero">
+        <div class="hero-bg-circle c1"></div>
+        <div class="hero-bg-circle c2"></div>
+
+        <div class="hero-content">
+            <div class="profile-pic-wrapper">
+                <img src="profil.jpg" alt="Jeremy JEAN" class="profile-pic" onerror="this.src='https://ui-avatars.com/api/?name=Jeremy+JEAN&background=1e3a8a&color=fff&size=200'" />
+            </div>
+
+            <h1>Jeremy JEAN</h1>
+            <div class="hero-role">
+                <span id="typingText"></span><span style="animation: blink 0.7s infinite">|</span>
+            </div>
+            <p>Étudiant en <strong>BUT GEA (Gestion Comptable & Financière)</strong>. Je transforme les données chiffrées en leviers de décision stratégiques pour l'entreprise.</p>
+            
+            <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+                <a href="JEANJeremy-CV.pdf" target="_blank" download class="btn btn-primary"><i class="fas fa-download"></i> Télécharger CV</a>
+                <button onclick="navigateTo('contact')" class="btn btn-secondary">Me Contacter</button>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        
+        <section id="profil" class="reveal">
+            <div class="section-header">
+                <h2 class="section-title">À Propos</h2>
+                <p class="section-subtitle">Rigueur, Analyse & Ambition Professionnelle.</p>
+            </div>
+            <div class="grid-2">
+                <div class="card">
+                    <h3 style="color:var(--text-main); margin-bottom:1rem;"><i class="fas fa-user-tie text-accent"></i> Mon Objectif</h3>
+                    <p style="color:var(--text-muted); margin-bottom:1rem;">
+                        Actuellement en alternance chez <strong>DART France</strong> et étudiant à l'IUT d'Aix-Marseille, je construis mon parcours vers les métiers de la direction financière.
+                    </p>
+                    <p style="color:var(--text-muted);">
+                        Mon approche combine la rigueur comptable traditionnelle avec une maitrise des outils numériques (ERP, Excel avancé) pour optimiser les processus de gestion.
+                    </p>
+                </div>
+                <div class="card" style="display:flex; flex-direction:column; justify-content:center; gap:1.5rem;">
+                    <div style="display:flex; align-items:center; gap:15px;">
+                        <i class="fas fa-graduation-cap fa-2x text-accent"></i>
+                        <div>
+                            <h4 style="margin:0;">BUT GEA Option GC2F</h4>
+                            <span style="font-size:0.9rem; color:var(--text-muted);">IUT Aix-Marseille (Gap)</span>
+                        </div>
+                    </div>
+                    <div style="display:flex; align-items:center; gap:15px;">
+                        <i class="fas fa-briefcase fa-2x text-accent"></i>
+                        <div>
+                            <h4 style="margin:0;">Alternant Comptable</h4>
+                            <span style="font-size:0.9rem; color:var(--text-muted);">DART France (09/24 - Présent)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="reveal">
+            <div class="section-header">
+                <h2 class="section-title">Parcours Pro</h2>
+                <p class="section-subtitle">Une expérience terrain concrète.</p>
+            </div>
+            
+            <div class="card">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <span class="timeline-date">Sept 2024 - Présent</span>
+                    <h4 class="timeline-title">Alternant Service Comptabilité</h4>
+                    <p class="timeline-company">DART France — Le-Puy-Sainte-Réparade</p>
+                    <ul class="task-list">
+                        <li>Gestion autonome de la trésorerie et suivi de l'affacturage.</li>
+                        <li>Saisie des écritures bancaires et virements fournisseurs.</li>
+                        <li>Utilisation quotidienne des ERP Sage X3 et Quadra.</li>
+                        <li>Participation active aux clôtures mensuelles.</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <span class="timeline-date">Janv 2024 - Fév 2024</span>
+                    <h4 class="timeline-title">Stage Assistant Comptable</h4>
+                    <p class="timeline-company">Cabinet Sejnera Essautier — Marseille</p>
+                    <ul class="task-list">
+                        <li>Saisie comptable et enregistrement des factures clients/fournisseurs.</li>
+                        <li>Réalisation des rapprochements bancaires.</li>
+                        <li>Découverte des processus de révision des comptes annuels.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="apprentissage" class="reveal">
+            <div class="section-header">
+                <h2 class="section-title">Expertise & Preuves</h2>
+                <p class="section-subtitle">Compétences validées par des réalisations concrètes (AC).</p>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <h3><i class="fas fa-search-dollar"></i> C1 - Analyser</h3>
+                    </div>
+                    <div class="skill-body">
+                        <div class="ac-item">
+                            <span class="ac-title">Diagnostic Stratégique (BMC)</span>
+                            <span class="ac-desc">Analyse de l'environnement externe et des partenaires.</span>
+                            <a href="preuves/U2E4...BusinessModelCanvas.pdf" target="_blank" class="btn-preuve"><i class="fas fa-eye"></i> Voir le dossier</a>
+                        </div>
+                        <div class="ac-item">
+                            <span class="ac-title">Audit de Processus</span>
+                            <span class="ac-desc">Création de questionnaires d'audit pour optimisation.</span>
+                            <a href="preuves/Questionnaire SAÉ 1-3.pdf" target="_blank" class="btn-preuve"><i class="fas fa-eye"></i> Voir l'audit</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <h3><i class="fas fa-chess-knight"></i> C2 - Décider</h3>
+                    </div>
+                    <div class="skill-body">
+                        <div class="ac-item">
+                            <span class="ac-title">Modélisation Excel Avancée</span>
+                            <span class="ac-desc">Outils d'aide à la décision automatisés (SI).</span>
+                            <a href="preuves/Previsionel.xlsx" target="_blank" class="btn-preuve"><i class="fas fa-file-excel"></i> Voir le modèle</a>
+                        </div>
+                        <div class="ac-item">
+                            <span class="ac-title">Gestion des Risques</span>
+                            <span class="ac-desc">Mesures préventives et correctives en simulation.</span>
+                            <a href="preuves/CréaSim..." target="_blank" class="btn-preuve"><i class="fas fa-shield-alt"></i> Voir l'analyse</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <h3><i class="fas fa-cogs"></i> C4 - Produire (Compta)</h3>
+                    </div>
+                    <div class="skill-body">
+                        <div class="ac-item">
+                            <span class="ac-title">États Financiers (Bilan/CR)</span>
+                            <span class="ac-desc">Production conforme aux normes comptables.</span>
+                            <a href="preuves/AC34.01.pdf" target="_blank" class="btn-preuve"><i class="fas fa-file-contract"></i> Voir Bilan</a>
+                        </div>
+                        <div class="ac-item">
+                            <span class="ac-title">Fiscalité (TVA)</span>
+                            <span class="ac-desc">Calcul, déclaration et traitement comptable TVA.</span>
+                            <a href="preuves/AC34.02.pdf" target="_blank" class="btn-preuve"><i class="fas fa-calculator"></i> Voir Déclaration</a>
+                        </div>
+                        <div class="ac-item">
+                            <span class="ac-title">Diagnostic Financier</span>
+                            <span class="ac-desc">SIG, CAF et ratios de structure.</span>
+                            <a href="preuves/Evaluation JEAN Jeremy.xlsx" target="_blank" class="btn-preuve"><i class="fas fa-chart-pie"></i> Voir SIG</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <h3><i class="fas fa-balance-scale"></i> C5 - Piloter & Évaluer</h3>
+                    </div>
+                    <div class="skill-body">
+                        <div class="ac-item">
+                            <span class="ac-title">Plan de Financement</span>
+                            <span class="ac-desc">Équilibre Emplois/Ressources et investissements.</span>
+                            <a href="preuves/Previsionel.xlsx" target="_blank" class="btn-preuve"><i class="fas fa-coins"></i> Voir Plan</a>
+                        </div>
+                        <div class="ac-item">
+                            <span class="ac-title">Budget de Trésorerie</span>
+                            <span class="ac-desc">Pilotage court terme des flux cash.</span>
+                            <a href="preuves/Previsionel.xlsx" target="_blank" class="btn-preuve"><i class="fas fa-money-bill-wave"></i> Voir Budget</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="reveal">
+            <div class="section-header">
+                <h2 class="section-title">Contact</h2>
+                <p class="section-subtitle">Disponible pour échanger sur une opportunité ou un projet.</p>
+            </div>
+            <div class="card" style="max-width: 600px; margin: auto;">
+                <form action="mailto:jeremy.jean@etu.univ-amu.fr" method="post" enctype="text/plain">
+                    <input type="text" class="form-input" placeholder="Votre Nom / Entreprise" name="nom" required>
+                    <input type="email" class="form-input" placeholder="Email de contact" name="email" required>
+                    <textarea class="form-input" rows="5" placeholder="Votre message..." name="message" required></textarea>
+                    
+                    <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">
+                        Envoyer <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+                
+                <div style="margin-top: 2rem; text-align: center; border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
+                    <p style="margin-bottom:0.5rem;"><i class="fas fa-envelope text-accent"></i> jeremy.jean@etu.univ-amu.fr</p>
+                    <p><i class="fas fa-phone text-accent"></i> 07 49 27 97 51</p>
+                    <p style="color:var(--text-muted); font-size:0.9rem; margin-top:0.5rem;">Ancelle (05260)</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Jeremy JEAN</h4>
+                <p>Étudiant ambitieux visant l'excellence en gestion financière.</p>
+                <div style="margin-top:1rem;">
+                    <a href="https://fr.linkedin.com/in/j%C3%A9r%C3%A9my-jean-48725429b" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <a href="#accueil">Retour en haut</a>
+                <a href="JEANJeremy-CV.pdf" target="_blank" download>Mon CV PDF</a>
+            </div>
+            <div class="footer-col">
+                <h4>Liens Utiles</h4>
+                <a href="https://www.univ-amu.fr/" target="_blank">IUT Aix-Marseille</a>
+                <a href="#">Mentions Légales</a>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 3rem; color: #64748b; font-size: 0.85rem;">
+            &copy; 2024 Jeremy JEAN. Portfolio Professionnel.
+        </div>
+    </footer>
+
+    <script>
+        // --- 1. NAVIGATION MOBILE & SMOOTH SCROLL ---
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
+
+        function navigateTo(id) {
+            navLinks.classList.remove('show'); // Ferme le menu mobile
+            const element = document.getElementById(id);
+            if(element) {
+                const headerOffset = 80;
+                const elementPosition = element.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+            }
+        }
+
+        // --- 2. TYPING EFFECT HERO ---
+        const words = ["Gestion Comptable", "Analyse Financière", "Contrôle de Gestion"];
+        let i = 0;
+        let timer;
+
+        function typingEffect() {
+            let word = words[i].split("");
+            var loopTyping = function() {
+                if (word.length > 0) {
+                    document.getElementById('typingText').innerHTML += word.shift();
+                } else {
+                    setTimeout(deletingEffect, 2000); // Pause avant d'effacer
+                    return false;
+                }
+                timer = setTimeout(loopTyping, 100);
+            };
+            loopTyping();
+        }
+
+        function deletingEffect() {
+            let word = words[i].split("");
+            var loopDeleting = function() {
+                if (word.length > 0) {
+                    word.pop();
+                    document.getElementById('typingText').innerHTML = word.join("");
+                } else {
+                    if (words.length > (i + 1)) { i++; } else { i = 0; }
+                    typingEffect();
+                    return false;
+                }
+                timer = setTimeout(loopDeleting, 50);
+            };
+            loopDeleting();
+        }
+        typingEffect();
+
+        // --- 3. SCROLL REVEAL ---
+        window.addEventListener('scroll', reveal);
+        function reveal() {
+            var reveals = document.querySelectorAll('.reveal');
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var revealTop = reveals[i].getBoundingClientRect().top;
+                var revealPoint = 100;
+                if (revealTop < windowHeight - revealPoint) {
+                    reveals[i].classList.add('active');
+                }
+            }
+        }
+        reveal(); // Trigger on load
+
+        // --- 4. DARK MODE ---
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            const btn = document.querySelector('.theme-toggle i');
+            if(document.body.classList.contains('dark-mode')){
+                btn.classList.remove('fa-moon');
+                btn.classList.add('fa-sun');
+            } else {
+                btn.classList.remove('fa-sun');
+                btn.classList.add('fa-moon');
+            }
+        }
+    </script>
+</body>
+</html>
