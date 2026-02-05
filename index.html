@@ -28,6 +28,11 @@
     --header-height: 70px;
 }
 
+/* --- MODIFICATION COULEUR : Blanc Perle --- */
+body:not(.dark-mode) {
+    --bg-color: #F8F6F0; /* Blanc Perle élégant */
+}
+
 body.dark-mode {
     --bg-color: #0f172a;
     --text-main: #f1f5f9;
@@ -78,10 +83,15 @@ nav {
     display: flex; justify-content: space-between; align-items: center;
 }
 
+/* --- MODIFICATION LOGO CSS --- */
 .logo {
-    font-weight: 800; font-size: 1.5rem; letter-spacing: -0.5px;
-    background: linear-gradient(135deg, var(--text-main), var(--accent));
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    display: flex;
+    align-items: center;
+}
+.logo img {
+    height: 50px; /* Ajuste la hauteur du logo dans la barre */
+    width: auto;
+    object-fit: contain;
 }
 
 .nav-links { display: flex; gap: 2.5rem; list-style: none; }
@@ -309,7 +319,10 @@ footer {
 
     <header>
         <nav>
-            <div class="logo">Jeremy JEAN<span style="color:var(--accent)">.</span></div>
+            <div class="logo">
+                <img src="image_2.png" alt="Jeremy JEAN Portfolio Logo" />
+            </div>
+            
             <div class="hamburger" id="hamburger">
                 <div></div><div></div><div></div>
             </div>
@@ -328,7 +341,7 @@ footer {
     <div id="heroSection" class="hero">
         <div class="hero-content">
             <div class="profile-pic-container">
-                <img src="profil.jpg" 
+                <img src="image_0.png" 
                      alt="Jeremy JEAN" 
                      class="profile-pic" 
                      onerror="this.src='https://ui-avatars.com/api/?name=Jeremy+JEAN&background=0F172A&color=fff&size=256&font-size=0.33'" />
@@ -355,7 +368,7 @@ footer {
             </div>
             <div class="glass-card">
                 <h3><i class="fas fa-user-tie"></i> Profil Professionnel</h3>
-                <p>Étudiant en <strong>BUT GEA option GC2F</strong> (Gestion Comptable, Fiscale et Financière) et alternant chez <strong>DART France</strong>. Ma passion ne se limite pas aux chiffres : j'aime les faire parler pour orienter les décisions stratégiques.</p>
+                <p>Jeune diplômé d'un <strong>BUT GEA</strong>, parcours Gestion Comptable, Fiscale et Financière (GC2F). Actuellement en alternance chez <strong>DART France</strong>, je souhaite intégrer un Master en gestion financière et comptabilité afin de développer mes compétences et approfondir mes connaissances dans ce domaine.</p>
                 <p>Je combine une solide formation technique universitaire avec l'exigence du terrain en grande entreprise. Mon approche est focalisée sur la fiabilité de l'information financière et l'optimisation des processus.</p>
                 <div style="margin-top:1.5rem; display:flex; gap:1rem;">
                     <div style="text-align:center; flex:1; padding:1rem; background:rgba(59,130,246,0.1); border-radius:10px;">
@@ -385,18 +398,18 @@ footer {
                         <span class="timeline-date">Sept 2024 - Présent</span>
                         <h4>Alternant Comptable — DART France</h4>
                         <ul>
-                            <li>Gestion autonome de la trésorerie et de l'affacturage.</li>
-                            <li>Saisie comptable complexe et rapprochements bancaires sur gros volumes.</li>
-                            <li>Utilisation experte des ERP : Sage X3 & Quadra.</li>
+                            <li>Saisie des écritures bancaires.</li>
+                            <li>Virements fournisseurs.</li>
+                            <li>Saisie des traites pour l'affacturage.</li>
+                            <li>Utilisation experte des ERP : Sage X3 & Quadra (Notions de base).</li>
                         </ul>
                     </div>
                     <div class="timeline-item">
-                        <span class="timeline-date">Janv 2024 - Fév 2024</span>
-                        <h4>Stagiaire — Cabinet d'Expertise Comptable</h4>
+                        <span class="timeline-date">22/01/24 - 16/02/24</span>
+                        <h4>Stagiaire en cabinet comptable — Cabinet Sejnera Essautier (Marseille)</h4>
                         <ul>
-                            <li>Assistance aux opérations de clôture annuelle (Bilan).</li>
-                            <li>Déclarations fiscales (TVA) et relation client de premier niveau.</li>
-                            <li>Révision des comptes et justification des soldes.</li>
+                            <li>Enregistrement de facture.</li>
+                            <li>Rapprochement bancaire.</li>
                         </ul>
                     </div>
                 </div>
@@ -435,7 +448,7 @@ footer {
                     <div class="skill-body">
                         <div class="ac-item">
                             <span class="ac-title">Modélisation Excel Avancée</span>
-                            <span class="ac-desc">Outils d'aide à la décision automatisés (SI).</span>
+                            <span class="ac-desc">Outils d'aide à la décision automatisés (SI). Maitrise du logiciel Microsoft suite -Excel et Word.</span>
                             <a href="preuves/Previsionel.xlsx" target="_blank" class="btn-preuve"><i class="fas fa-file-excel"></i> Voir le modèle</a>
                         </div>
                         <div class="ac-item">
@@ -497,11 +510,11 @@ footer {
             <div class="card-grid">
                 <div class="glass-card" style="border-top: 4px solid var(--accent)">
                     <h3><i class="fas fa-bullseye"></i> Court Terme</h3>
-                    <p>Valider mon BUT GEA avec mention et exceller dans mon alternance chez DART France en maîtrisant tous les aspects opérationnels du service comptable.</p>
+                    <p>Valider mon BUT GEA (3ème année option GC2F) et exceller dans mon alternance chez DART France en maîtrisant tous les aspects opérationnels du service comptable.</p>
                 </div>
                 <div class="glass-card" style="border-top: 4px solid var(--gold)">
                     <h3><i class="fas fa-graduation-cap"></i> Moyen Terme</h3>
-                    <p>Poursuite en Master CCA ou DSCG. Objectif : devenir Responsable Administratif et Financier (RAF) ou Contrôleur de Gestion en PME.</p>
+                    <p>Intégrer un Master en gestion financière et comptabilité. Objectif : devenir Responsable Administratif et Financier (RAF) ou Contrôleur de Gestion en PME.</p>
                 </div>
                 <div class="glass-card" style="border-top: 4px solid var(--text-main)">
                     <h3><i class="fas fa-building"></i> Long Terme</h3>
@@ -541,16 +554,16 @@ footer {
         <div class="footer-content">
             <div class="footer-col">
                 <h4>Jeremy JEAN</h4>
-                <p>Étudiant ambitieux en BUT GEA GC2F.</p>
+                <p>Étudiant BUT GEA GC2F.</p>
                 <p>Actuellement en poste chez DART France.</p>
                 <div style="margin-top:1rem;">
                     <a href="https://fr.linkedin.com/in/j%C3%A9r%C3%A9my-jean-48725429b" target="_blank" style="font-size:1.5rem; margin-right:1rem;"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" style="font-size:1.5rem;"><i class="fas fa-envelope"></i></a>
+                    <a href="mailto:jeremy.jean@etu.univ-amu.fr" style="font-size:1.5rem;"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
             <div class="footer-col">
                 <h4>Coordonnées</h4>
-                <p><i class="fas fa-map-marker-alt"></i> Ancelle (05260)</p>
+                <p><i class="fas fa-map-marker-alt"></i> Les Jardins Alpins, 05260 Ancelle</p>
                 <p><i class="fas fa-phone"></i> 07 49 27 97 51</p>
                 <p><i class="fas fa-at"></i> jeremy.jean@etu.univ-amu.fr</p>
             </div>
@@ -558,11 +571,11 @@ footer {
                 <h4>Liens Rapides</h4>
                 <a href="#heroSection">Retour en haut</a>
                 <a href="JEANJeremy-CV.pdf" download>Télécharger CV</a>
-                <a href="https://www.univ-amu.fr/" target="_blank">Aix-Marseille Université</a>
+                <a href="https://www.univ-amu.fr/" target="_blank">Aix-Marseille Université (Gap)</a>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 Jeremy JEAN. Conçu avec précision.</p>
+            <p>&copy; 2024 Jeremy JEAN. Permis B.</p>
         </div>
     </footer>
 
