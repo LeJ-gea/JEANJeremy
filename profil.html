@@ -7,24 +7,18 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
-    <script>
-    // Animation de la Timeline au défilement
-    const timelineItems = document.querySelectorAll('.timeline-item');
-
-    const timelineObserver = new IntersectionObserver((entries, observer) => {
+<script>
+    const timelineSteps = document.querySelectorAll('.timeline-step');
+    const observer = new IntersectionObserver((entries, obs) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                observer.unobserve(entry.target); // L'animation ne se joue qu'une fois
+                obs.unobserve(entry.target);
             }
         });
-    }, {
-        threshold: 0.2 // Se déclenche quand 20% de l'élément est visible
-    });
+    }, { threshold: 0.2 });
 
-    timelineItems.forEach(item => {
-        timelineObserver.observe(item);
-    });
+    timelineSteps.forEach(step => observer.observe(step));
 </script>
 <body>
 
