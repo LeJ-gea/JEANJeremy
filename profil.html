@@ -7,19 +7,6 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
-<script>
-    const timelineSteps = document.querySelectorAll('.timeline-step');
-    const observer = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                obs.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.2 });
-
-    timelineSteps.forEach(step => observer.observe(step));
-</script>
 <body>
 
     <div class="background-blobs">
@@ -114,6 +101,133 @@
     </div>
 </section>
 </section>
+    <!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Profil | Portfolio GC2F</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <header class="glass-panel">
+        <div class="logo">Portfolio</div>
+        <nav>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Accueil</a></li>
+                <li class="nav-item">
+                    <a href="profil.html" class="nav-link">Mon Profil</a>
+                    <ul class="dropdown-menu glass-panel">
+                        <li><a href="cv.pdf" target="_blank" class="dropdown-item">Consulter mon CV</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="competences.html" class="nav-link">Compétences</a>
+                    <ul class="dropdown-menu glass-panel">
+                        <li><a href="competences.html#gea2" class="dropdown-item">Compétences GEA 2</a></li>
+                        <li><a href="competences.html#gea3" class="dropdown-item">Compétences GEA 3 (GC2F)</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="experiences.html" class="nav-link">Expériences</a>
+                    <ul class="dropdown-menu glass-panel">
+                        <li><a href="experiences.html" class="dropdown-item">Stages et Mémoire</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="glass-panel" style="text-align: center;">
+            <h2 class="section-title">Mon Curriculum Vitae</h2>
+            <p style="max-width: 800px; margin: 0 auto 2rem auto;">
+                Découvrez mon parcours académique et professionnel. Vous pouvez consulter mon CV directement ci-dessous ou le télécharger pour le conserver.
+            </p>
+            
+            <div style="width: 100%; max-width: 900px; height: 600px; margin: 0 auto; border: 1px solid var(--glass-border); border-radius: 8px; overflow: hidden; background-color: #f4f4f4; display: flex; align-items: center; justify-content: center;">
+                <embed src="cv.pdf" type="application/pdf" width="100%" height="100%" />
+            </div>
+
+            <div style="margin-top: 2rem;">
+                <a href="cv.pdf" download class="btn-primary">Télécharger mon CV (PDF)</a>
+            </div>
+        </section>
+
+        <section class="glass-panel" style="margin-top: 4rem;">
+            <h2 class="section-title">Mon Parcours</h2>
+            <p style="margin-bottom: 3rem;">Retrouvez les grandes étapes de ma formation et de mon immersion professionnelle, du Baccalauréat à ma spécialisation en finance.</p>
+
+            <div class="modern-timeline">
+                <div class="timeline-step">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-card glass-panel">
+                        <div class="timeline-date">Juin 2023</div>
+                        <h3>Obtention du Baccalauréat</h3>
+                        <p>Baccalauréat (précise ta filière), mention (précise). Acquisition des fondamentaux en économie, gestion et mathématiques appliquées.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-step">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-card glass-panel">
+                        <div class="timeline-date">Septembre 2023</div>
+                        <h3>Intégration BUT GEA</h3>
+                        <p>Début du cursus intensif en Gestion des Entreprises et des Administrations. Apprentissage de la comptabilité générale, du droit des affaires et du management.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-step">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-card glass-panel">
+                        <div class="timeline-date">Avril - Juin 2025</div>
+                        <h3>Stage de 2ème Année</h3>
+                        <p>Première immersion professionnelle. Prise en charge de missions de soutien comptable, analyse de l'environnement de l'entreprise et maîtrise des ERP.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-step">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-card glass-panel">
+                        <div class="timeline-date">Sept. 2025 - Aujourd'hui</div>
+                        <h3>BUT 3 - Spécialisation GC2F</h3>
+                        <p>Spécialisation en Gestion Comptable, Fiscale et Financière. Élaboration de plans de financement, réalisation d'audits et gestion de la trésorerie à court et moyen terme.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="glass-panel">
+        <div><span style="font-weight: 700; color: var(--dark-blue);">PORTFOLIO</span> &copy; 2026 - BUT GEA GC2F</div>
+        <div style="display: flex; gap: 1.5rem;">
+            <a href="cv.pdf" download class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Télécharger CV</a>
+            <a href="https://linkedin.com/in/tonprofil" target="_blank" class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.8rem;">LinkedIn</a>
+        </div>
+    </footer>
+
+    <script>
+        const timelineSteps = document.querySelectorAll('.timeline-step');
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        timelineSteps.forEach(step => observer.observe(step));
+    </script>
+</body>
+</html>
 
     <footer class="glass-panel">
         <div><span style="font-weight: 700; color: var(--dark-blue);">PORTFOLIO</span> &copy; 2026 - BUT GEA GC2F</div>
