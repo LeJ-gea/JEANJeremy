@@ -1,80 +1,97 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <meta property="og:title" content="Portfolio Professionnel | BUT GEA GC2F">
+    <meta property="og:description" content="Étudiant en BUT GEA GC2F. Découvrez mon parcours, mes compétences en gestion, finance et comptabilité, ainsi que mes réalisations professionnelles.">
+    <meta property="og:url" content="https://ton-pseudo.github.io/ton-dossier/">
+    <meta property="og:image" content="https://LeJ-gea.io/JEANJeremy/miniature.jpg">
+    <meta property="og:type" content="website">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jean Jérémy - Portfolio BUT GEA</title>
+    <title>Accueil | Portfolio GC2F</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav>
-        <div class="nav-content">
-            <a href="index.html" class="logo">Jean Jérémy</a>
-            <div class="nav-links">
-                <a href="index.html" class="active">Accueil</a>
-                <a href="profil.html">Profil</a>
-                <a href="competences.html">Compétences</a>
-                <a href="experiences.html">Expériences</a>
-            </div>
-        </div>
-    </nav>
 
-    <main class="container">
-        <section id="hero" style="
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <header class="glass-panel">
+        <div class="logo">Portfolio</div>
+        <nav>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Accueil</a></li>
+                <li class="nav-item">
+                    <a href="profil.html" class="nav-link">Mon Profil</a>
+                    <ul class="dropdown-menu glass-panel">
+                        <li><a href="cv.pdf" target="_blank" class="dropdown-item">Consulter mon CV</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="competences.html" class="nav-link">Compétences</a>
+                    <ul class="dropdown-menu glass-panel">
+                        <li><a href="competences.html#gea2" class="dropdown-item">Compétences GEA 2</a></li>
+                        <li><a href="competences.html#gea3" class="dropdown-item">Compétences GEA 3 (GC2F)</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="experiences.html" class="nav-link">Expériences</a>
+                    <ul class="dropdown-menu glass-panel">
+                        <li><a href="experiences.html" class="dropdown-item">Stages et Mémoire</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="glass-panel" style="
             position: relative; 
-            padding: 4rem 1rem; 
-            margin-bottom: 2rem; 
-            border-radius: 15px; 
-            overflow: hidden; 
-            text-align: center;
-            background-image: url('images/fond-hero.jpg'); /* TON IMAGE DE FOND ICI */
+            padding: 4rem 2rem; 
+            text-align: center; 
+            background-image: url('ton-image-de-fond.jpg'); /* MODIFIE ICI */
             background-size: cover; 
             background-position: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            border: none;
+            overflow: hidden;
         ">
-            <div style="
-                position: absolute; 
-                top: 0; left: 0; width: 100%; height: 100%; 
-                background: rgba(0,0,0,0.4); /* Ajuste l'opacité (0.4) selon ton image */
-                border-radius: 15px;
-                z-index: 1;
-            "></div>
-
-            <div style="position: relative; z-index: 2; color: white;">
-                <img src="images/ma-photo.jpg" alt="Photo de Jean Jérémy" style="
-                    width: 150px; 
-                    height: 150px; 
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.3); z-index: 1;"></div>
+            
+            <div style="position: relative; z-index: 2;">
+                <img src="ta-photo.jpg" alt="Photo de profil" style="
+                    width: 180px; 
+                    height: 180px; 
                     border-radius: 50%; 
                     object-fit: cover; 
-                    border: 4px solid white; 
-                    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-                    margin-bottom: 1rem;
+                    border: 5px solid var(--pearl-white); 
+                    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
                 ">
-                <h1 style="font-size: 2.5rem; font-weight: 700; margin: 0; text-transform: uppercase; letter-spacing: 1px;">
-                    Jean Jérémy
-                </h1>
-                <p style="font-size: 1.2rem; font-weight: 300; margin-top: 0.5rem; opacity: 0.9;">
-                    Étudiant BUT GEA | Spécialisation GC2F
-                </p>
             </div>
         </section>
 
-        <section class="glass-panel" style="text-align: center; padding: 3rem 2rem; max-width: 900px; margin: 0 auto 3rem auto;">
-            <h2 class="section-title" style="border: none; font-size: 1.8rem; margin-bottom: 1.5rem;">Présentation</h2>
-            <p style="max-width: 700px; margin: 0 auto; font-size: 1.1rem; line-height: 1.6;">
-                Actuellement en 3ème année de BUT Gestion des Entreprises et des Administrations (GEA), je me spécialise en <strong>Gestion Comptable, Fiscale et Financière (GC2F)</strong>. 
+        <section class="glass-panel" style="text-align: center; padding: 4rem 2rem; max-width: 900px; margin: 0 auto 4rem auto;">
+            <h1 class="section-title" style="border: none;">À propos de moi</h1>
+            <p style="max-width: 800px; margin: 0 auto; font-size: 1.2rem;">
+                Étudiant en BUT Gestion des Entreprises et des Administrations (GEA), spécialisation Gestion Comptable, Fiscale et Financière (GC2F). 
                 <br><br>
-                Passionné par l'analyse financière et la stratégie d'entreprise, j'ai conçu ce portfolio pour mettre en lumière mon parcours, mes compétences techniques et les projets concrets qui valident mon expertise.
+                Passionné par l'analyse financière et la stratégie d'entreprise, ce site a pour vocation de présenter mon parcours, mes compétences techniques et les réalisations concrètes qui jalonnent ma professionnalisation.
             </p>
-            <div style="margin-top: 2.5rem;">
+            <div style="margin-top: 3rem;">
                 <a href="competences.html" class="btn-primary">Découvrir mes compétences</a>
             </div>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2024 Jean Jérémy - Tous droits réservés</p>
+    <footer class="glass-panel">
+        <div><span style="font-weight: 700; color: var(--dark-blue);">PORTFOLIO</span> &copy; 2026 - BUT GEA GC2F</div>
+        <div style="display: flex; gap: 1.5rem;">
+            <a href="cv.pdf" download class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Télécharger CV</a>
+            <a href="https://linkedin.com/in/tonprofil" target="_blank" class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.8rem;">LinkedIn</a>
+        </div>
     </footer>
+
 </body>
 </html>
