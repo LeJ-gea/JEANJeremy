@@ -81,97 +81,106 @@ p { font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem; }
 .btn-primary:hover { background-color: var(--dark-blue); color: var(--pearl-white); }
 footer { margin: 2rem auto; max-width: 1200px; width: 95%; padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; }
 
-/* --- TIMELINE ANIMÉE --- */
-.timeline {
+/* --- FRISE CHRONOLOGIQUE MODERNE --- */
+.modern-timeline {
     position: relative;
-    max-width: 1000px;
+    max-width: 900px;
     margin: 0 auto;
-    padding: 2rem 0;
+    padding-left: 2rem;
+    border-left: 3px solid rgba(162, 200, 227, 0.4); /* Ligne directrice bleu clair transparente */
 }
 
-/* La ligne centrale */
-.timeline::after {
-    content: '';
-    position: absolute;
-    width: 4px;
-    background-color: var(--light-blue);
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    margin-left: -2px;
-    border-radius: 2px;
-}
-
-.timeline-item {
-    padding: 10px 40px;
+.timeline-step {
     position: relative;
-    background-color: inherit;
-    width: 50%;
-    opacity: 0; /* Caché par défaut pour l'animation */
-    transform: translateY(50px);
+    margin-bottom: 3.5rem;
+    padding-left: 2.5rem;
+    opacity: 0;
+    transform: translateX(-30px);
     transition: all 0.6s ease-out;
 }
 
-/* Apparition au scroll */
-.timeline-item.visible {
+/* Apparition au scroll via le script JS */
+.timeline-step.visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
 }
 
-.timeline-item.left { left: 0; }
-.timeline-item.right { left: 50%; }
+.timeline-step:last-child {
+    margin-bottom: 0;
+}
 
-/* Les petits points sur la ligne */
-.timeline-item::after {
-    content: '';
+/* Le point sur la ligne */
+.timeline-marker {
     position: absolute;
+    left: -11px; /* Centré sur la bordure gauche */
+    top: 0;
     width: 20px;
     height: 20px;
-    right: -10px;
+    border-radius: 50%;
     background-color: var(--pearl-white);
     border: 4px solid var(--dark-blue);
-    top: 25px;
-    border-radius: 50%;
-    z-index: 1;
+    box-shadow: 0 0 0 4px rgba(44, 62, 80, 0.1);
+    transition: all 0.3s ease;
 }
 
-.timeline-item.right::after {
-    left: -10px;
+/* Effet lumineux au survol de l'étape */
+.timeline-step:hover .timeline-marker {
+    background-color: var(--light-blue);
+    border-color: var(--light-blue);
+    box-shadow: 0 0 15px var(--light-blue);
+    transform: scale(1.2);
 }
 
-/* Contenu des boîtes de la timeline */
-.timeline-content {
-    padding: 1.5rem;
+/* La carte de contenu */
+.timeline-card {
+    padding: 2rem;
     border-radius: 8px;
     position: relative;
-    transition: transform 0.3s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.timeline-content:hover {
-    transform: scale(1.03);
+.timeline-step:hover .timeline-card {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(44, 62, 80, 0.1);
     border-color: var(--light-blue);
 }
 
-.timeline-content h3 {
-    margin-bottom: 0.5rem;
-    font-size: 1.3rem;
-}
-
-.timeline-content .date {
+/* Le badge de date */
+.timeline-date {
     display: inline-block;
-    color: var(--pearl-white);
-    background-color: var(--dark-blue);
-    padding: 0.3rem 0.8rem;
-    border-radius: 4px;
+    background-color: rgba(162, 200, 227, 0.2);
+    color: var(--dark-blue);
+    font-weight: 700;
     font-size: 0.85rem;
-    font-weight: bold;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
     margin-bottom: 1rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    border: 1px solid var(--light-blue);
 }
 
-/* Version Mobile (la ligne passe sur la gauche) */
-@media screen and (max-width: 768px) {
-    .timeline::after { left: 31px; }
-    .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
-    .timeline-item.right { left: 0%; }
-    .timeline-item.left::after, .timeline-item.right::after { left: 21px; }
+.timeline-card h3 {
+    margin-bottom: 0.8rem;
+    font-size: 1.4rem;
+    color: var(--dark-blue);
+}
+
+.timeline-card p {
+    margin-bottom: 0;
+    font-size: 1rem;
+    color: var(--text-main);
+}
+
+/* Adaptation pour très petits écrans */
+@media screen and (max-width: 600px) {
+    .modern-timeline {
+        padding-left: 1rem;
+    }
+    .timeline-step {
+        padding-left: 1.5rem;
+    }
+    .timeline-card {
+        padding: 1.5rem;
+    }
 }
