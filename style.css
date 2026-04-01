@@ -225,7 +225,45 @@ footer { margin: 2rem auto; max-width: 1200px; width: 95%; padding: 2rem 3rem; d
         padding: 1.5rem;
     }
 }
+/* --- Jauges de Compétences (Hard Skills) --- */
+.skills-container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
 
+.skill-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.skill-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    color: var(--dark-blue);
+    font-size: 1.1rem;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 12px;
+    background-color: rgba(162, 200, 227, 0.3); /* Fond bleu très clair */
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--light-blue), var(--dark-blue));
+    border-radius: 10px;
+    width: 0; /* Commence à 0 pour l'animation */
+    transition: width 1.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
 /* =========================================
    RESPONSIVE DESIGN (Mobiles & Tablettes)
    ========================================= */
