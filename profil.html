@@ -127,18 +127,19 @@
         </div>
     </footer>
 
-    <script>
-
+ <script>
+        // 1. Menu Burger
         const burger = document.querySelector('.burger-menu');
         const nav = document.querySelector('.nav-menu');
-
         if (burger) {
             burger.addEventListener('click', () => {
                 nav.classList.toggle('active');
                 burger.classList.toggle('active');
             });
         }
-        const timelineSteps = document.querySelectorAll('.timeline-step');
+
+        // 2. Animation Frise chronologique ET Cartes
+        const animatedElements = document.querySelectorAll('.timeline-step, .card');
         const observer = new IntersectionObserver((entries, obs) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -146,11 +147,25 @@
                     obs.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.2 });
+        }, { threshold: 0.1, rootMargin: "0px 0px -20px 0px" });
 
-        timelineSteps.forEach(step => observer.observe(step));
+        animatedElements.forEach(el => observer.observe(el));
+
+        // 3. Animation des Jauges de compétences
+        const progressBars = document.querySelectorAll('.progress-fill');
+        const progressObserver = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const bar = entry.target;
+                    // Récupère le pourcentage défini dans le HTML et l'applique à la largeur
+                    bar.style.width = bar.getAttribute('data-width');
+                    obs.unobserve(bar);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        progressBars.forEach(bar => progressObserver.observe(bar));
     </script>
-    
     <section class="glass-panel card" style="margin-top: 4rem;">
             <h2 class="section-title" style="text-align: center; display: block;">Outils & Logiciels</h2>
             <p style="text-align: center; margin-bottom: 3rem;">Maîtrise des outils informatiques indispensables à la gestion comptable et financière.</p>
