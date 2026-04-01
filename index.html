@@ -101,6 +101,18 @@
             <a href="https://linkedin.com/in/tonprofil" target="_blank" class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.8rem;">LinkedIn</a>
         </div>
     </footer>
+<script>
+        const burger = document.querySelector('.burger-menu');
+        const nav = document.querySelector('.nav-menu');
 
+        if (burger) {
+            burger.addEventListener('click', () => {
+                nav.classList.toggle('active');
+                burger.classList.toggle('active');
+            });
+        }
+    </script>
+
+    
 </body>
 </html>
