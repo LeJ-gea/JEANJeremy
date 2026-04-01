@@ -128,6 +128,16 @@
     </footer>
 
     <script>
+
+        const burger = document.querySelector('.burger-menu');
+        const nav = document.querySelector('.nav-menu');
+
+        if (burger) {
+            burger.addEventListener('click', () => {
+                nav.classList.toggle('active');
+                burger.classList.toggle('active');
+            });
+        }
         const timelineSteps = document.querySelectorAll('.timeline-step');
         const observer = new IntersectionObserver((entries, obs) => {
             entries.forEach(entry => {
