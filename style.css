@@ -184,3 +184,88 @@ footer { margin: 2rem auto; max-width: 1200px; width: 95%; padding: 2rem 3rem; d
         padding: 1.5rem;
     }
 }
+/* =========================================
+   RESPONSIVE DESIGN (Mobiles & Tablettes)
+   ========================================= */
+@media screen and (max-width: 768px) {
+    /* 1. Ajustement du Header et du Menu */
+    header {
+        flex-direction: column;
+        height: auto;
+        padding: 1rem;
+        gap: 0.5rem;
+        position: relative; /* Évite qu'il cache le haut du site sur mobile */
+    }
+    .nav-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+    .nav-item {
+        padding: 0.5rem;
+    }
+    .nav-link {
+        font-size: 0.8rem;
+    }
+    
+    /* Sous-menus (plus adaptés au tactile) */
+    .dropdown-menu {
+        min-width: 200px;
+        left: 50%;
+        transform: translateX(-50%) translateY(15px);
+    }
+    .nav-item:hover .dropdown-menu {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    /* 2. Espacements globaux et typographie */
+    main {
+        margin-top: 2rem; /* Réduit l'espace vide en haut */
+        padding: 0 1rem;
+    }
+    section {
+        padding: 2rem 1.5rem !important; /* Écrase les gros paddings des cartes */
+        margin-bottom: 2rem;
+    }
+    .section-title {
+        font-size: 1.8rem; /* Titres plus petits */
+        margin-bottom: 1.5rem;
+    }
+    p {
+        font-size: 1rem;
+    }
+
+    /* 3. Ajustement des grilles et des cartes */
+    .grid-container {
+        grid-template-columns: 1fr; /* Force 1 seule colonne sur mobile */
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+    }
+    .card {
+        padding: 1.5rem; /* Cartes moins imposantes */
+    }
+
+    /* 4. Ajustement de la frise chronologique */
+    .modern-timeline {
+        padding-left: 1rem;
+    }
+    .timeline-step {
+        padding-left: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    .timeline-card {
+        padding: 1.5rem;
+    }
+
+    /* 5. Ajustement du Footer */
+    footer {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem;
+        gap: 1.5rem;
+    }
+    footer div {
+        flex-direction: column; /* Empile les boutons "Plan", "CV" et "LinkedIn" */
+        gap: 1rem;
+    }
+}
