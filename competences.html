@@ -128,6 +128,7 @@
     </footer>
 
     <script>
+        // 1. Script pour le Menu Burger (déjà existant)
         const burger = document.querySelector('.burger-menu');
         const nav = document.querySelector('.nav-menu');
 
@@ -137,6 +138,32 @@
                 burger.classList.toggle('active');
             });
         }
+
+        // 2. NOUVEAU SCRIPT : Animation des cartes au défilement
+        const cards = document.querySelectorAll('.card');
+        
+        // Options : l'animation se déclenche quand on voit 10% de la carte
+        const observerOptions = {
+            threshold: 0.1, 
+            rootMargin: "0px 0px -20px 0px"
+        };
+
+        const cardObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                // Si la carte entre dans l'écran
+                if (entry.isIntersecting) {
+                    // On ajoute la classe "visible" (qui déclenche le CSS)
+                    entry.target.classList.add('visible');
+                    // On arrête d'observer cette carte (l'animation ne se joue qu'une fois)
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // On applique l'observateur à toutes les cartes de la page
+        cards.forEach(card => {
+            cardObserver.observe(card);
+        });
     </script>
     
 </body>
