@@ -205,54 +205,104 @@ footer { margin: 2rem auto; max-width: 1200px; width: 95%; padding: 2rem 3rem; d
    RESPONSIVE DESIGN (Mobiles & Tablettes)
    ========================================= */
 @media screen and (max-width: 768px) {
-    /* Afficher le bouton burger */
+    /* 1. Le Header (On garde le logo à gauche) */
+    header {
+        padding: 0.5rem 1.5rem;
+    }
+
+    /* 2. Le bouton Burger : Cloué en haut à droite */
     .burger-menu {
         display: flex;
+        position: absolute; /* Le sort du flux normal */
+        right: 1.5rem;      /* Collé à droite */
+        top: 50%;           /* Centré verticalement dans le header... */
+        transform: translateY(-50%); /* ...parfaitement */
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 20px;
+        margin: 0;
     }
     
-    /* Le menu latéral qui glisse */
+    .burger-menu span {
+        width: 100%;
+        height: 3px;
+        background-color: var(--dark-blue);
+        border-radius: 3px;
+        transition: all 0.3s ease;
+        margin: 0; 
+    }
+
+    /* Animation de la croix */
+    .burger-menu.active span:nth-child(1) { transform: translateY(8.5px) rotate(45deg); }
+    .burger-menu.active span:nth-child(2) { opacity: 0; }
+    .burger-menu.active span:nth-child(3) { transform: translateY(-8.5px) rotate(-45deg); }
+
+    /* 3. Le menu latéral qui glisse */
     .nav-menu {
         position: fixed;
         top: 0;
-        right: -100%; /* Caché hors de l'écran à droite */
-        width: 80%; /* Prend 80% de l'écran */
+        right: -100%;
+        width: 100%; /* Prend tout l'écran pour bien centrer */
+        max-width: 300px; /* Pas trop large non plus */
         height: 100vh;
-        background: var(--pearl-white); /* Fond blanc pur pour la lisibilité */
+        background: var(--pearl-white);
         box-shadow: -5px 0 15px rgba(0,0,0,0.1);
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        transition: right 0.4s ease; /* Animation fluide */
+        justify-content: center; /* Centre verticalement */
+        align-items: center;     /* Centre horizontalement */
+        transition: right 0.4s ease;
         z-index: 1000;
-        gap: 2rem;
+        gap: 2.5rem;
     }
 
-    /* La classe qui sera ajoutée en JS pour faire apparaître le menu */
     .nav-menu.active {
         right: 0;
     }
 
-    /* Animation de la croix sur le burger quand c'est ouvert */
-    .burger-menu.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-    .burger-menu.active span:nth-child(2) { opacity: 0; }
-    .burger-menu.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-
-    /* Ajustement des liens dans le menu mobile */
-    .nav-item { padding: 0; }
-    .nav-link { font-size: 1.2rem; }
+    /* 4. Les onglets : Parfaitement centrés */
+    .nav-item {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centre le contenu */
+        padding: 0;
+    }
     
-    /* Les sous-menus s'affichent sous les liens principaux */
+    .nav-link {
+        font-size: 1.3rem;
+        text-align: center;
+        width: 100%;
+    }
+    
+    /* 5. Les sous-menus (CV, GEA 2, etc.) */
     .dropdown-menu {
         position: relative;
-        transform: none;
+        transform: none !important;
+        opacity: 1;
+        visibility: visible;
         box-shadow: none;
         border: none;
         background: transparent;
         text-align: center;
-        padding-top: 1rem;
+        padding: 0.5rem 0 0 0;
+        min-width: auto;
+        display: none; /* Caché par défaut pour ne pas surcharger */
+    }
+    
+    /* Afficher le sous-menu quand on clique sur la rubrique principale */
+    .nav-item:hover .dropdown-menu,
+    .nav-item:focus-within .dropdown-menu {
+        display: block;
     }
 
-    /* Ajustements généraux de la page */
+    .dropdown-item {
+        padding: 0.5rem;
+        font-size: 0.95rem;
+        text-align: center;
+    }
+
+    /* 6. Ajustements généraux de la page */
     main { margin-top: 6rem; padding: 0 1rem; }
     section { padding: 2rem 1.5rem !important; }
     .section-title { font-size: 1.8rem; }
