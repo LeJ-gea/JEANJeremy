@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan du site | Portfolio GC2F</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <header class="glass-panel">
+        <div class="logo">Portfolio</div>
+        <nav>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Accueil</a></li>
+                <li class="nav-item">
+                    <a href="profil.html" class="nav-link">Mon Profil</a>
+                    <ul class="dropdown-menu glass-panel">
+                        <li><a href="cv.pdf" target="_blank" class="dropdown-item">Consulter mon CV</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="competences.html" class="nav-link">Compétences</a>
+                    <ul class="dropdown-menu glass-panel">
+                        <li><a href="competences.html#gea2" class="dropdown-item">Compétences GEA 2</a></li>
+                        <li><a href="competences.html#gea3" class="dropdown-item">Compétences GEA 3 (GC2F)</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="experiences.html" class="nav-link">Expériences</a>
+                    <ul class="dropdown-menu glass-panel">
+                        <li><a href="experiences.html" class="dropdown-item">Stages et Mémoire</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="glass-panel" style="max-width: 900px; margin: 0 auto;">
+            <h2 class="section-title">Plan du site</h2>
+            <p style="margin-bottom: 2rem;">Retrouvez ci-dessous l'arborescence complète de mon portfolio professionnel.</p>
+            
+            <div style="text-align: left; margin-left: 2rem;">
+                <ul style="list-style-type: none; font-size: 1.1rem; line-height: 2;">
+                    <li><strong><a href="index.html" style="color: var(--dark-blue); text-decoration: none;">🏠 Accueil</a></strong>
+                        <ul style="list-style-type: circle; margin-left: 2rem; margin-bottom: 1rem;">
+                            <li>Présentation et accès rapide</li>
+                        </ul>
+                    </li>
+                    <li><strong><a href="profil.html" style="color: var(--dark-blue); text-decoration: none;">👤 Mon Profil</a></strong>
+                        <ul style="list-style-type: circle; margin-left: 2rem; margin-bottom: 1rem;">
+                            <li>Consulter et télécharger mon CV</li>
+                            <li>Mon parcours (Frise chronologique)</li>
+                            <li>Mon projet professionnel (Master CGAO)</li>
+                        </ul>
+                    </li>
+                    <li><strong><a href="competences.html" style="color: var(--dark-blue); text-decoration: none;">🎯 Compétences</a></strong>
+                        <ul style="list-style-type: circle; margin-left: 2rem; margin-bottom: 1rem;">
+                            <li>Compétences GEA 3 (GC2F) - Évaluer l'activité</li>
+                            <li>Compétences GEA 3 (GC2F) - Produire l'information comptable</li>
+                        </ul>
+                    </li>
+                    <li><strong><a href="experiences.html" style="color: var(--dark-blue); text-decoration: none;">💼 Expériences</a></strong>
+                        <ul style="list-style-type: circle; margin-left: 2rem; margin-bottom: 1rem;">
+                            <li>Stage & Alternance (GEA 3) - Mémoire de fin d'études</li>
+                            <li>Stage (GEA 2) - Rapport de stage</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer class="glass-panel">
+        <div><span style="font-weight: 700; color: var(--dark-blue);">PORTFOLIO</span> &copy; 2026 - BUT GEA GC2F</div>
+        <div style="display: flex; gap: 1.5rem; align-items: center;">
+            <a href="plan.html" style="color: var(--dark-blue); text-decoration: none; font-size: 0.9rem; font-weight: 700;">Plan du site</a>
+            <a href="cv.pdf" download class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Télécharger CV</a>
+            <a href="https://linkedin.com/in/tonprofil" target="_blank" class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.8rem;">LinkedIn</a>
+        </div>
+    </footer>
+
+</body>
+</html>
