@@ -238,34 +238,34 @@ footer { margin: 2rem auto; max-width: 1200px; width: 95%; padding: 2rem 3rem; d
     .burger-menu.active span:nth-child(2) { opacity: 0; }
     .burger-menu.active span:nth-child(3) { transform: translateY(-8.5px) rotate(-45deg); }
 
-    /* 3. Le menu latéral qui glisse */
+/* 3. Le menu latéral qui glisse */
     .nav-menu {
         position: fixed;
         top: 0;
         right: -100%;
-        width: 100%; /* Prend tout l'écran pour bien centrer */
-        max-width: 300px; /* Pas trop large non plus */
+        width: 100%; 
+        max-width: 300px; 
         height: 100vh;
         background: var(--pearl-white);
         box-shadow: -5px 0 15px rgba(0,0,0,0.1);
         flex-direction: column;
-        justify-content: center; /* Centre verticalement */
-        align-items: center;     /* Centre horizontalement */
+        justify-content: center; 
+        align-items: center;     
         transition: right 0.4s ease;
         z-index: 1000;
-        gap: 2.5rem;
+        gap: 1.5rem; /* J'ai réduit l'espace ici pour que tout rentre bien */
     }
 
     .nav-menu.active {
         right: 0;
     }
 
-    /* 4. Les onglets : Parfaitement centrés */
+    /* 4. Les onglets principaux */
     .nav-item {
         width: 100%;
         display: flex;
         flex-direction: column;
-        align-items: center; /* Centre le contenu */
+        align-items: center; 
         padding: 0;
     }
     
@@ -275,9 +275,10 @@ footer { margin: 2rem auto; max-width: 1200px; width: 95%; padding: 2rem 3rem; d
         width: 100%;
     }
     
-    /* 5. Les sous-menus (CV, GEA 2, etc.) */
+    /* 5. Les sous-menus (CORRIGÉS POUR MOBILE) */
     .dropdown-menu {
         position: relative;
+        top: 0; /* CORRECTION : Empêche le menu de descendre trop bas */
         transform: none !important;
         opacity: 1;
         visibility: visible;
@@ -287,18 +288,13 @@ footer { margin: 2rem auto; max-width: 1200px; width: 95%; padding: 2rem 3rem; d
         text-align: center;
         padding: 0.5rem 0 0 0;
         min-width: auto;
-        display: none; /* Caché par défaut pour ne pas surcharger */
-    }
-    
-    /* Afficher le sous-menu quand on clique sur la rubrique principale */
-    .nav-item:hover .dropdown-menu,
-    .nav-item:focus-within .dropdown-menu {
-        display: block;
+        display: block; /* Toujours visible pour faciliter le clic au doigt ! */
     }
 
     .dropdown-item {
-        padding: 0.5rem;
+        padding: 0.3rem;
         font-size: 0.95rem;
+        color: #5b9bd5; /* Bleu plus clair pour montrer que c'est un sous-menu */
         text-align: center;
     }
 
