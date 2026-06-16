@@ -3,85 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mes Compétences | Portfolio</title>
-    <!-- Assure-toi que le lien vers ton fichier CSS est correct -->
+    <title>Compétences | Portfolio GC2F</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- En-tête / Navigation (À adapter selon tes autres pages) -->
-    <header class="main-header">
+
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+   <header class="glass-panel">
+        <div class="logo">Portfolio</div>
+        
+        <div class="burger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
         <nav>
-            <ul>
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="profil.html">Profil</a></li>
-                <li><a href="competences.html" class="active">Compétences</a></li>
-                <li><a href="experiences.html">Expériences</a></li>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Accueil</a></li>
+                <li class="nav-item">
+                    <a href="profil.html" class="nav-link">Mon Profil</a>
+                    <ul class="dropdown-menu glass-panel">
+                        <li><a href="cv.pdf" target="_blank" class="dropdown-item">Consulter mon CV</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="competences.html" class="nav-link">Compétences</a>
+                    <ul class="dropdown-menu glass-panel">
+                        <li><a href="competences.html#gea3" class="dropdown-item">Compétences GEA 3 (GC2F)</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="experiences.html" class="nav-link">Expériences</a>
+                    <ul class="dropdown-menu glass-panel">
+                        <li><a href="experiences.html" class="dropdown-item">Stages et Mémoire</a></li>
+                    </ul>
+                </li>
             </ul>
         </nav>
     </header>
 
-    <!-- Contenu principal -->
-    <main class="competences-container">
-        <section class="section-title">
-            <h1>Mes Compétences</h1>
-            <p>Découvrez les langages, outils et méthodes que je maîtrise.</p>
-        </section>
+    <main>
+        <section id="gea3" class="glass-panel">
+            <h2 class="section-title">Apprentissages Critiques (BUT 3 - GC2F)</h2>
+            <p>Démonstration de ma maîtrise de l'ensemble des processus organisationnels, comptables et financiers.</p>
+            
+            <div class="grid-container">
+                
+                <div class="card">
+                    <h4>Analyser les processus de l'organisation</h4>
+                    <ul>
+                        <li>Intégrer l'impact des enjeux sur l'organisation.</li>
+                        <li>Conseiller un type d'organisation.</li>
+                        <li>Proposer des améliorations des processus.</li>
+                    </ul>
+                    <p><em>Preuve :</em> Analyse stratégique menée lors de mon immersion en entreprise.</p>
+                    <a href="#" target="_blank" class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Consulter la preuve</a>
+                </div>
 
-        <section class="skills-grid">
-            <!-- Catégorie 1 : Développement -->
-            <article class="skill-card">
-                <h2>Développement Web</h2>
-                <ul class="skill-list">
-                    <li>
-                        <span class="skill-name">HTML5 / CSS3</span>
-                        <div class="skill-bar"><div class="skill-level" style="width: 90%;"></div></div>
-                    </li>
-                    <li>
-                        <span class="skill-name">JavaScript</span>
-                        <div class="skill-bar"><div class="skill-level" style="width: 80%;"></div></div>
-                    </li>
-                    <li>
-                        <span class="skill-name">React / Vue.js</span>
-                        <div class="skill-bar"><div class="skill-level" style="width: 70%;"></div></div>
-                    </li>
-                </ul>
-            </article>
+                <div class="card">
+                    <h4>Aider à la prise de décision</h4>
+                    <ul>
+                        <li>Collaborer au processus d'amélioration continue du système d'information.</li>
+                        <li>Exploiter les données pour accompagner la prise de décision.</li>
+                        <li>Participer à la prise de décision en fonction des contraintes identifiées.</li>
+                        <li>Élaborer des mesures préventives de minimisation des risques.</li>
+                    </ul>
+                    <p><em>Preuve :</em> Mise en place d'un tableau de bord décisionnel.</p>
+                    <a href="#" target="_blank" class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Consulter la preuve</a>
+                </div>
 
-            <!-- Catégorie 2 : Design -->
-            <article class="skill-card">
-                <h2>Design & UI/UX</h2>
-                <ul class="skill-list">
-                    <li>
-                        <span class="skill-name">Figma</span>
-                        <div class="skill-bar"><div class="skill-level" style="width: 85%;"></div></div>
-                    </li>
-                    <li>
-                        <span class="skill-name">Adobe Photoshop</span>
-                        <div class="skill-bar"><div class="skill-level" style="width: 75%;"></div></div>
-                    </li>
-                </ul>
-            </article>
+                <div class="card">
+                    <h4>Piloter les relations avec les parties prenantes</h4>
+                    <ul>
+                        <li>Animer une équipe.</li>
+                        <li>Mener un projet collaboratif.</li>
+                        <li>Participer à l'amélioration de la politique de communication en lien avec la stratégie.</li>
+                    </ul>
+                    <p><em>Preuve :</em> Gestion d'un projet de groupe et présentation devant un jury d'experts.</p>
+                    <a href="#" target="_blank" class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Consulter la preuve</a>
+                </div>
 
-            <!-- Catégorie 3 : Outils -->
-            <article class="skill-card">
-                <h2>Outils & Workflow</h2>
-                <ul class="skill-list">
-                    <li>
-                        <span class="skill-name">Git & GitHub</span>
-                        <div class="skill-bar"><div class="skill-level" style="width: 85%;"></div></div>
-                    </li>
-                    <li>
-                        <span class="skill-name">Méthodes Agiles (Scrum)</span>
-                        <div class="skill-bar"><div class="skill-level" style="width: 90%;"></div></div>
-                    </li>
-                </ul>
-            </article>
+                <div class="card">
+                    <h4>Produire l'information comptable</h4>
+                    <ul>
+                        <li>Résoudre les problèmes comptables spécifiques à l'évaluation des actifs et passifs et à la détermination des charges et produits.</li>
+                        <li>Appliquer les règles comptables, fiscales et sociales adaptées à l'organisation.</li>
+                        <li>Réaliser un diagnostic et/ou un audit pour apporter des conseils.</li>
+                        <li>Sécuriser l'information comptable, fiscale et sociale produite.</li>
+                    </ul>
+                    <p><em>Preuve :</em> Dossier de révision comptable et application rigoureuse des normes de clôture.</p>
+                    <a href="JEAN_Edition_Equilibre.pdf" target="_blank" class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Consulter la preuve</a>
+                </div>
+
+                <div class="card">
+                    <h4>Évaluer l'activité de l'organisation</h4>
+                    <ul>
+                        <li>Mettre en place une politique d'investissement cohérente.</li>
+                        <li>Mettre en place les sources de financement nécessaires.</li>
+                        <li>Établir un plan de financement équilibré.</li>
+                        <li>Réaliser la gestion de trésorerie sur le court terme.</li>
+                        <li>Réaliser à moyen et long terme des budgets d'exploitation et de trésorerie, des comptes de résultat et des bilans prévisionnels.</li>
+                    </ul>
+                    <p><em>Preuve :</em> Élaboration d'un plan d'investissement stratégique tenant compte de contraintes strictes (optimisation d'une enveloppe de 180€/mois) pour démontrer la viabilité du financement.</p>
+                    <a href="plan-investissement.pdf" target="_blank" class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Consulter la preuve</a>
+                </div>
+
+            </div>
         </section>
     </main>
-
-    <!-- Pied de page -->
-    <footer>
-        <p>&copy; 2026 Jean Jeremy. Tous droits réservés.</p>
+    
+    <footer class="glass-panel">
+        <div><span style="font-weight: 700; color: var(--dark-blue);">PORTFOLIO</span> &copy; 2026 - BUT GEA GC2F</div>
+        <div style="display: flex; gap: 1.5rem; align-items: center;">
+            <a href="plan.html" style="color: var(--dark-blue); text-decoration: none; font-size: 0.9rem; font-weight: 700;">Plan du site</a>
+            <a href="cv.pdf" download class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Télécharger CV</a>
+            <a href="https://linkedin.com/in/tonprofil" target="_blank" class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.8rem;">LinkedIn</a>
+        </div>
     </footer>
+
+    <script>
+        // 1. Script pour le Menu Burger (déjà existant)
+        const burger = document.querySelector('.burger-menu');
+        const nav = document.querySelector('.nav-menu');
+
+        if (burger) {
+            burger.addEventListener('click', () => {
+                nav.classList.toggle('active');
+                burger.classList.toggle('active');
+            });
+        }
+
+        // 2. NOUVEAU SCRIPT : Animation des cartes au défilement
+        const cards = document.querySelectorAll('.card');
+        
+        // Options : l'animation se déclenche quand on voit 10% de la carte
+        const observerOptions = {
+            threshold: 0.1, 
+            rootMargin: "0px 0px -20px 0px"
+        };
+
+        const cardObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                // Si la carte entre dans l'écran
+                if (entry.isIntersecting) {
+                    // On ajoute la classe "visible" (qui déclenche le CSS)
+                    entry.target.classList.add('visible');
+                    // On arrête d'observer cette carte (l'animation ne se joue qu'une fois)
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // On applique l'observateur à toutes les cartes de la page
+        cards.forEach(card => {
+            cardObserver.observe(card);
+        });
+    </script>
+    
 </body>
 </html>
