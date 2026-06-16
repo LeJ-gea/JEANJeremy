@@ -3,156 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mes Compétences</title>
-    <!-- Relie le fichier à ton propre design d'origine -->
+    <title>Mes Compétences | Portfolio</title>
+    <!-- Assure-toi que le lien vers ton fichier CSS est correct -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- En-tête / Navigation (À adapter selon tes autres pages) -->
+    <header class="main-header">
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="profil.html">Profil</a></li>
+                <li><a href="competences.html" class="active">Compétences</a></li>
+                <li><a href="experiences.html">Expériences</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <!-- Tableau fonctionnel avec tes apprentissages critiques et liens locaux -->
-    <table border="1" style="border-collapse: collapse; width: 100%;">
-        <thead>
-            <tr>
-                <th>Compétence (GC2F)</th>
-                <th>Apprentissage Critique (AC)</th>
-                <th>Preuve matérielle (Dossier de reprise)</th>
-                <th>Justification orale</th>
-            </tr>
-        </thead>
-        <tbody>
-            
-            <!-- COMPÉTENCE 1 -->
-            <tr>
-                <td><b>Analyser les processus de l'organisation dans son Environnement</b></td>
-                <td>Intégrer l'impact des enjeux sur l'organisation</td>
-                <td><a href="plan.html">Analyse PESTEL & SWOT</a></td>
-                <td>"J'ai analysé comment les contraintes réglementaires (Loi Littoral) et climatiques (PPRN) du littoral dictent notre stratégie d'investissement."</td>
-            </tr>
-            <tr>
-                <td><b>Analyser les processus de l'organisation dans son Environnement</b></td>
-                <td>Conseiller un type d'organisation</td>
-                <td><a href="plan.html">Choix des structures juridiques</a></td>
-                <td>"Pour sécuriser l'actif et optimiser la fiscalité d'un CA de 1 M€, j'ai conseillé un montage combinant SAS et SCI."</td>
-            </tr>
-            <tr>
-                <td><b>Analyser les processus de l'organisation dans son Environnement</b></td>
-                <td>Proposer des improvements des processus</td>
-                <td><a href="plan.html">Plan de Digitalisation de l'accueil</a></td>
-                <td>"J'ai modélisé la digitalisation de l'accueil pour réduire les goulots d'étranglement des flux de clients en haute saison."</td>
-            </tr>
+    <!-- Contenu principal -->
+    <main class="competences-container">
+        <section class="section-title">
+            <h1>Mes Compétences</h1>
+            <p>Découvrez les langages, outils et méthodes que je maîtrise.</p>
+        </section>
 
-            <!-- COMPÉTENCE 2 -->
-            <tr>
-                <td><b>Aider à la prise de décision</b></td>
-                <td>Collaborer au processus d'amélioration continue du système d'information</td>
-                <td><a href="plan.html">Projet d'Infrastructure Fibre/Wi-Fi</a></td>
-                <td>"J'ai valorisé un investissement SI pour développer les ventes directes et contourner les commissions élevées des plateformes."</td>
-            </tr>
-            <tr>
-                <td><b>Aider à la prise de décision</b></td>
-                <td>Exploiter les données pour accompagner la prise de décision</td>
-                <td><a href="JEAN_Edition_Equilibre.pdf#page=1">Ratios métiers HPA</a></td>
-                <td>"Les indicateurs opérationnels ont mis en lumière une sous-performance de la marge brute, orientant la décision vers du premium."</td>
-            </tr>
-            <tr>
-                <td><b>Aider à la prise de décision</b></td>
-                <td>Participer à la prise de décision en fonction des contraintes identifiées</td>
-                <td><a href="JEAN_Edition_Equilibre.pdf#page=1">Arbitrage de Structure Financière</a></td>
-                <td>"Face à la contrainte de liquidité immédiate au bilan, j'ai validé le recours à l'emprunt long terme pour préserver le BFR."</td>
-            </tr>
-            <tr>
-                <td><b>Aider à la prise de décision</b></td>
-                <td>Élaborer des mesures préventives de minimisation des risques</td>
-                <td><a href="plan.html">Budget Travaux Normes PPRN</a></td>
-                <td>"J'ai budgété une mesure préventive de 50 k€ pour neutraliser le risque de submersion marine et sécuriser la valeur du fonds."</td>
-            </tr>
+        <section class="skills-grid">
+            <!-- Catégorie 1 : Développement -->
+            <article class="skill-card">
+                <h2>Développement Web</h2>
+                <ul class="skill-list">
+                    <li>
+                        <span class="skill-name">HTML5 / CSS3</span>
+                        <div class="skill-bar"><div class="skill-level" style="width: 90%;"></div></div>
+                    </li>
+                    <li>
+                        <span class="skill-name">JavaScript</span>
+                        <div class="skill-bar"><div class="skill-level" style="width: 80%;"></div></div>
+                    </li>
+                    <li>
+                        <span class="skill-name">React / Vue.js</span>
+                        <div class="skill-bar"><div class="skill-level" style="width: 70%;"></div></div>
+                    </li>
+                </ul>
+            </article>
 
-            <!-- COMPÉTENCE 3 -->
-            <tr>
-                <td><b>Piloter les relations avec les parties prenantes de l'organisation</b></td>
-                <td>Animer une équipe</td>
-                <td><a href="experiences.html">Gestion et coordination de projet</a></td>
-                <td>"Nous avons mené une démarche collaborative transversale pour lier le diagnostic de terrain à la trajectoire financière."</td>
-            </tr>
-            <tr>
-                <td><b>Piloter les relations avec les parties prenantes de l'organisation</b></td>
-                <td>Mener un projet collaboratif</td>
-                <td><a href="experiences.html">Projet de Reprise d'Entreprise</a></td>
-                <td>"La réussite de ce projet a reposé sur la répartition claire des livrables financiers, juridiques et stratégiques au sein de notre groupe."</td>
-            </tr>
-            <tr>
-                <td><b>Piloter les relations avec les parties prenantes de l'organisation</b></td>
-                <td>Participer à l'amélioration de la politique de communication en lien avec la stratégie</td>
-                <td><a href="plan.html">Positionnement Écotourisme</a></td>
-                <td>"J'ai fait évoluer la communication vers l'écotourisme pour capter des segments à fort pouvoir d'achat hors saison."</td>
-            </tr>
+            <!-- Catégorie 2 : Design -->
+            <article class="skill-card">
+                <h2>Design & UI/UX</h2>
+                <ul class="skill-list">
+                    <li>
+                        <span class="skill-name">Figma</span>
+                        <div class="skill-bar"><div class="skill-level" style="width: 85%;"></div></div>
+                    </li>
+                    <li>
+                        <span class="skill-name">Adobe Photoshop</span>
+                        <div class="skill-bar"><div class="skill-level" style="width: 75%;"></div></div>
+                    </li>
+                </ul>
+            </article>
 
-            <!-- COMPÉTENCE 4 -->
-            <tr>
-                <td><b>Produire l'information comptable, fiscale et sociale de l'organisation</b></td>
-                <td>Résoudre les problèmes comptables spécifiques à l'évaluation des actifs et passifs...</td>
-                <td><a href="JEAN_Edition_Equilibre.pdf#page=2">Tableau d'Amortissement Prévisionnel</a></td>
-                <td>"J'ai résolu l'impact comptable du plan d'investissement en calculant les amortissements pour déterminer le résultat net prévisionnel."</td>
-            </tr>
-            <tr>
-                <td><b>Produire l'information comptable, fiscale et sociale de l'organisation</b></td>
-                <td>Appliquer les règles comptables, fiscales et sociales adaptées à l'organisation</td>
-                <td><a href="JEAN_Edition_Equilibre.pdf#page=1">Cadrage Fiscal National HPA</a></td>
-                <td>"J'ai appliqué la fiscalité HPA, notamment le prorata temporis sur la CFE pour une activité ouverte moins de 9 mois."</td>
-            </tr>
-            <tr>
-                <td><b>Produire l'information comptable, fiscale et sociale de l'organisation</b></td>
-                <td>Réaliser un diagnostic et/ou un audit pour apporter des conseils</td>
-                <td><a href="JEAN_Edition_Equilibre.pdf#page=1">Valorisation par Multiple EBE</a></td>
-                <td>"Mon audit financier a permis de formaliser une valorisation scientifique de l'entreprise cohérente avec le marché réel."</td>
-            </tr>
-            <tr>
-                <td><b>Produire l'information comptable, fiscale et sociale de l'organisation</b></td>
-                <td>Sécuriser l'information comptable, fiscale et sociale produite</td>
-                <td><a href="JEAN_Edition_Equilibre.pdf#page=1">Checklist Due Diligence</a></td>
-                <td>"J'ai formalisé un processus de contrôle d'urbanisme et juridique pour éliminer tout risque de passif caché avant le rachat."</td>
-            </tr>
+            <!-- Catégorie 3 : Outils -->
+            <article class="skill-card">
+                <h2>Outils & Workflow</h2>
+                <ul class="skill-list">
+                    <li>
+                        <span class="skill-name">Git & GitHub</span>
+                        <div class="skill-bar"><div class="skill-level" style="width: 85%;"></div></div>
+                    </li>
+                    <li>
+                        <span class="skill-name">Méthodes Agiles (Scrum)</span>
+                        <div class="skill-bar"><div class="skill-level" style="width: 90%;"></div></div>
+                    </li>
+                </ul>
+            </article>
+        </section>
+    </main>
 
-            <!-- COMPÉTENCE 5 -->
-            <tr>
-                <td><b>Évaluer l'activité de l'organisation</b></td>
-                <td>Mettre en place une politique d'investissement cohérente</td>
-                <td><a href="plan.html">Budget CAPEX Modernisation</a></td>
-                <td>"J'ai structuré un plan d'investissement de 305 k€ où chaque dépense est corrélée à un levier direct de rentabilité."</td>
-            </tr>
-            <tr>
-                <td><b>Évaluer l'activité de l'organisation</b></td>
-                <td>Mettre en place les sources de financement nécessaires</td>
-                <td><a href="JEAN_Edition_Equilibre.pdf#page=2">Levier Bancaire & Subventions</a></td>
-                <td>"J'ai optimisé le coût du capital en mobilisant des aides parapubliques en complément d'un effet de levier bancaire."</td>
-            </tr>
-            <tr>
-                <td><b>Évaluer l'activité de l'organisation</b></td>
-                <td>Établir un plan de financement équilibré</td>
-                <td><a href="JEAN_Edition_Equilibre.pdf#page=2">Équilibre Emplois / Ressources</a></td>
-                <td>"J'ai validé l'équilibre financier de l'opération en intégrant au plan de financement le CAPEX, le besoin en fonds de roulement et les frais annexes."</td>
-            </tr>
-            <tr>
-                <td><b>Évaluer l'activité de l'organisation</b></td>
-                <td>Réaliser la gestion de trésorerie sur le court terme</td>
-                <td><a href="JEAN_Edition_Equilibre.pdf#page=2">Suivi de Trésorerie Saisonnier</a></td>
-                <td>"J'ai planifié le pilotage de la trésorerie court terme pour sécuriser les phases de creux propres au modèle de l'hôtellerie de plein air."</td>
-            </tr>
-            <tr>
-                <td><b>Évaluer l'activité de l'organisation</b></td>
-                <td>Réaliser à moyen et long terme des budgets d'exploitation et de trésorerie...</td>
-                <td><a href="JEAN_Edition_Equilibre.pdf#page=2">Modélisation Prévisionnelle à 3 ans</a></td>
-                <td>"Mes états prévisionnels prouvent la viabilité du projet avec un cash-flow de 169 k€ et une trésorerie de 352 k€ accumulée en année 3."</td>
-            </tr>
-            <tr>
-                <td><b>Évaluer l'activité de l'organisation</b></td>
-                <td>Évaluer les résultats et les performances de l'organisation par le contrôle budgétaire</td>
-                <td><a href="JEAN_Edition_Equilibre.pdf#page=1">Contrôle et Écart de Marge EBE</a></td>
-                <td>"Le contrôle budgétaire met en évidence un écart de marge négatif par rapport au secteur, ce qui légitime notre plan de relance."</td>
-            </tr>
-
-        </tbody>
-    </table>
-
+    <!-- Pied de page -->
+    <footer>
+        <p>&copy; 2026 Jean Jeremy. Tous droits réservés.</p>
+    </footer>
 </body>
 </html>
