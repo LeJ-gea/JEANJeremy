@@ -6,6 +6,175 @@
     <title>Compétences | Portfolio GC2F</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* ── Page intro ── */
+        .page-intro {
+            text-align: center;
+            padding: 3rem 2rem 1rem;
+            max-width: 800px;
+            margin: 0 auto 2rem auto;
+        }
+        .page-intro p {
+            font-size: 1.05rem;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        /* ── Bloc compétence ── */
+        .competence-bloc {
+            margin-bottom: 3.5rem;
+        }
+        .competence-header {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--light-blue);
+        }
+        .competence-numero {
+            flex-shrink: 0;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: var(--dark-blue);
+            color: var(--pearl-white);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .competence-titre {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--dark-blue);
+            margin: 0;
+        }
+        .competence-tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            background: rgba(162, 200, 227, 0.25);
+            border: 1px solid var(--light-blue);
+            color: var(--dark-blue);
+            padding: 0.25rem 0.7rem;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+
+        /* ── Grille des AC ── */
+        .ac-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* ── Carte AC ── */
+        .ac-card {
+            background: rgba(253, 253, 253, 0.45);
+            border: 1px solid rgba(255, 255, 255, 0.55);
+            border-radius: 10px;
+            padding: 1.8rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.9rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.55s ease-out, transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease, background 0.3s ease;
+        }
+        .ac-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .ac-card.visible:hover {
+            background: rgba(253, 253, 253, 0.75);
+            box-shadow: 0 12px 30px rgba(44, 62, 80, 0.1);
+            transform: translateY(-6px);
+        }
+
+        .ac-code {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: #3b719f;
+            background: rgba(162, 200, 227, 0.18);
+            border: 1px solid rgba(162, 200, 227, 0.5);
+            border-radius: 4px;
+            padding: 0.2rem 0.6rem;
+        }
+        .ac-intitule {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.05rem;
+            color: var(--dark-blue);
+            line-height: 1.4;
+            margin: 0;
+        }
+        .ac-description {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.6;
+            flex: 1;
+            font-style: italic;
+        }
+        .ac-preuve {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            color: var(--dark-blue);
+            border: 1.5px solid var(--dark-blue);
+            border-radius: 4px;
+            padding: 0.45rem 0.9rem;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            align-self: flex-start;
+            margin-top: auto;
+            opacity: 0.45;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+        .ac-preuve.disponible {
+            opacity: 1;
+            cursor: pointer;
+            pointer-events: auto;
+        }
+        .ac-preuve.disponible:hover {
+            background: var(--dark-blue);
+            color: var(--pearl-white);
+        }
+
+        /* ── Compétences spécifiques GC2F ── */
+        .competence-bloc.gc2f .competence-numero {
+            background: linear-gradient(135deg, #2C3E50, #3b719f);
+        }
+        .competence-bloc.gc2f .competence-tag {
+            background: rgba(59, 113, 159, 0.15);
+            border-color: #3b719f;
+            color: #3b719f;
+        }
+
+        /* ── Wrapper principal ── */
+        .portfolio-competences {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+        }
+
+        @media screen and (max-width: 768px) {
+            .competence-header { flex-wrap: wrap; }
+            .competence-titre { font-size: 1.2rem; }
+            .ac-grid { grid-template-columns: 1fr; }
+            .portfolio-competences { padding: 0 1rem 3rem; }
+        }
+    </style>
 </head>
 <body>
 
@@ -14,9 +183,9 @@
         <div class="blob blob-2"></div>
     </div>
 
-   <header class="glass-panel">
+    <header class="glass-panel">
         <div class="logo">Portfolio</div>
-        
+
         <div class="burger-menu">
             <span></span>
             <span></span>
@@ -35,7 +204,11 @@
                 <li class="nav-item">
                     <a href="competences.html" class="nav-link">Compétences</a>
                     <ul class="dropdown-menu glass-panel">
-                        <li><a href="competences.html#gea3" class="dropdown-item">Compétences GEA 3 (GC2F)</a></li>
+                        <li><a href="competences.html#comp1" class="dropdown-item">C1 — Analyser</a></li>
+                        <li><a href="competences.html#comp2" class="dropdown-item">C2 — Aider à la décision</a></li>
+                        <li><a href="competences.html#comp3" class="dropdown-item">C3 — Piloter</a></li>
+                        <li><a href="competences.html#comp4" class="dropdown-item">C4 — Produire (GC2F)</a></li>
+                        <li><a href="competences.html#comp5" class="dropdown-item">C5 — Évaluer (GC2F)</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
@@ -49,75 +222,268 @@
     </header>
 
     <main>
-        <section id="gea3" class="glass-panel">
-            <h2 class="section-title">Apprentissages Critiques (BUT 3 - GC2F)</h2>
-            <p>Démonstration de ma maîtrise de l'ensemble des processus organisationnels, comptables et financiers.</p>
-            
-            <div class="grid-container">
-                
-                <div class="card">
-                    <h4>Analyser les processus de l'organisation</h4>
-                    <ul>
-                        <li>Intégrer l'impact des enjeux sur l'organisation.</li>
-                        <li>Conseiller un type d'organisation.</li>
-                        <li>Proposer des améliorations des processus.</li>
-                    </ul>
-                    <p><em>Preuve :</em> Analyse stratégique menée lors de mon immersion en entreprise.</p>
-                    <a href="#" target="_blank" class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Consulter la preuve</a>
+        <div class="page-intro">
+            <h1 class="section-title" style="border: none;">Compétences BUT 3 — GC2F</h1>
+            <p>Chaque apprentissage critique ci-dessous est illustré par une situation professionnelle ou académique vécue. Les preuves associées seront accessibles au fil de l'année.</p>
+        </div>
+
+        <div class="portfolio-competences">
+
+            <!-- ════════════════════════════════
+                 COMPÉTENCE 1 — ANALYSER
+            ════════════════════════════════ -->
+            <section class="competence-bloc" id="comp1">
+                <div class="competence-header">
+                    <div class="competence-numero">1</div>
+                    <h2 class="competence-titre">Analyser les processus de l'organisation dans son environnement</h2>
                 </div>
 
-                <div class="card">
-                    <h4>Aider à la prise de décision</h4>
-                    <ul>
-                        <li>Collaborer au processus d'amélioration continue du système d'information.</li>
-                        <li>Exploiter les données pour accompagner la prise de décision.</li>
-                        <li>Participer à la prise de décision en fonction des contraintes identifiées.</li>
-                        <li>Élaborer des mesures préventives de minimisation des risques.</li>
-                    </ul>
-                    <p><em>Preuve :</em> Mise en place d'un tableau de bord décisionnel.</p>
-                    <a href="#" target="_blank" class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Consulter la preuve</a>
+                <div class="ac-grid">
+
+                    <div class="ac-card">
+                        <span class="ac-code">AC31.01</span>
+                        <h3 class="ac-intitule">Intégrer l'impact des enjeux sur l'organisation</h3>
+                        <p class="ac-description">[Décrivez ici la situation professionnelle ou le projet qui illustre cet apprentissage.]</p>
+                        <a href="./preuves/ac31-01.pdf" target="_blank" class="ac-preuve">
+                            📂 Voir la preuve
+                        </a>
+                    </div>
+
+                    <div class="ac-card">
+                        <span class="ac-code">AC31.02</span>
+                        <h3 class="ac-intitule">Conseiller un type d'organisation</h3>
+                        <p class="ac-description">[Décrivez ici la situation professionnelle ou le projet qui illustre cet apprentissage.]</p>
+                        <a href="./preuves/ac31-02.pdf" target="_blank" class="ac-preuve">
+                            📂 Voir la preuve
+                        </a>
+                    </div>
+
+                    <div class="ac-card">
+                        <span class="ac-code">AC31.03</span>
+                        <h3 class="ac-intitule">Proposer des améliorations des processus</h3>
+                        <p class="ac-description">[Décrivez ici la situation professionnelle ou le projet qui illustre cet apprentissage.]</p>
+                        <a href="./preuves/ac31-03.pdf" target="_blank" class="ac-preuve">
+                            📂 Voir la preuve
+                        </a>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ════════════════════════════════
+                 COMPÉTENCE 2 — AIDER À LA DÉCISION
+            ════════════════════════════════ -->
+            <section class="competence-bloc" id="comp2">
+                <div class="competence-header">
+                    <div class="competence-numero">2</div>
+                    <h2 class="competence-titre">Aider à la prise de décision</h2>
                 </div>
 
-                <div class="card">
-                    <h4>Piloter les relations avec les parties prenantes</h4>
-                    <ul>
-                        <li>Animer une équipe.</li>
-                        <li>Mener un projet collaboratif.</li>
-                        <li>Participer à l'amélioration de la politique de communication en lien avec la stratégie.</li>
-                    </ul>
-                    <p><em>Preuve :</em> Gestion d'un projet de groupe et présentation devant un jury d'experts.</p>
-                    <a href="#" target="_blank" class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Consulter la preuve</a>
+                <div class="ac-grid">
+
+                    <div class="ac-card">
+                        <span class="ac-code">AC32.01</span>
+                        <h3 class="ac-intitule">Collaborer au processus d'amélioration continue du système d'information</h3>
+                        <p class="ac-description">[Décrivez ici la situation professionnelle ou le projet qui illustre cet apprentissage.]</p>
+                        <a href="./preuves/ac32-01.pdf" target="_blank" class="ac-preuve">
+                            📂 Voir la preuve
+                        </a>
+                    </div>
+
+                    <div class="ac-card">
+                        <span class="ac-code">AC32.02</span>
+                        <h3 class="ac-intitule">Exploiter les données pour accompagner la prise de décision</h3>
+                        <p class="ac-description">[Décrivez ici la situation professionnelle ou le projet qui illustre cet apprentissage.]</p>
+                        <a href="./preuves/ac32-02.pdf" target="_blank" class="ac-preuve">
+                            📂 Voir la preuve
+                        </a>
+                    </div>
+
+                    <div class="ac-card">
+                        <span class="ac-code">AC32.03</span>
+                        <h3 class="ac-intitule">Participer à la prise de décision en fonction des contraintes identifiées</h3>
+                        <p class="ac-description">[Décrivez ici la situation professionnelle ou le projet qui illustre cet apprentissage.]</p>
+                        <a href="./preuves/ac32-03.pdf" target="_blank" class="ac-preuve">
+                            📂 Voir la preuve
+                        </a>
+                    </div>
+
+                    <div class="ac-card">
+                        <span class="ac-code">AC32.04</span>
+                        <h3 class="ac-intitule">Élaborer des mesures préventives de minimisation des risques</h3>
+                        <p class="ac-description">[Décrivez ici la situation professionnelle ou le projet qui illustre cet apprentissage.]</p>
+                        <a href="./preuves/ac32-04.pdf" target="_blank" class="ac-preuve">
+                            📂 Voir la preuve
+                        </a>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ════════════════════════════════
+                 COMPÉTENCE 3 — PILOTER
+            ════════════════════════════════ -->
+            <section class="competence-bloc" id="comp3">
+                <div class="competence-header">
+                    <div class="competence-numero">3</div>
+                    <h2 class="competence-titre">Piloter les relations avec les parties prenantes de l'organisation</h2>
                 </div>
 
-                <div class="card">
-                    <h4>Produire l'information comptable</h4>
-                    <ul>
-                        <li>Résoudre les problèmes comptables spécifiques à l'évaluation des actifs et passifs et à la détermination des charges et produits.</li>
-                        <li>Appliquer les règles comptables, fiscales et sociales adaptées à l'organisation.</li>
-                        <li>Réaliser un diagnostic et/ou un audit pour apporter des conseils.</li>
-                        <li>Sécuriser l'information comptable, fiscale et sociale produite.</li>
-                    </ul>
-                    <p><em>Preuve :</em> Dossier de révision comptable et application rigoureuse des normes de clôture.</p>
-                    <a href="JEAN_Edition_Equilibre.pdf" target="_blank" class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Consulter la preuve</a>
+                <div class="ac-grid">
+
+                    <div class="ac-card">
+                        <span class="ac-code">AC33.01</span>
+                        <h3 class="ac-intitule">Animer une équipe</h3>
+                        <p class="ac-description">[Décrivez ici la situation professionnelle ou le projet qui illustre cet apprentissage.]</p>
+                        <a href="./preuves/ac33-01.pdf" target="_blank" class="ac-preuve">
+                            📂 Voir la preuve
+                        </a>
+                    </div>
+
+                    <div class="ac-card">
+                        <span class="ac-code">AC33.02</span>
+                        <h3 class="ac-intitule">Mener un projet collaboratif</h3>
+                        <p class="ac-description">[Décrivez ici la situation professionnelle ou le projet qui illustre cet apprentissage.]</p>
+                        <a href="./preuves/ac33-02.pdf" target="_blank" class="ac-preuve">
+                            📂 Voir la preuve
+                        </a>
+                    </div>
+
+                    <div class="ac-card">
+                        <span class="ac-code">AC33.03</span>
+                        <h3 class="ac-intitule">Participer à l'amélioration de la politique de communication en lien avec la stratégie</h3>
+                        <p class="ac-description">[Décrivez ici la situation professionnelle ou le projet qui illustre cet apprentissage.]</p>
+                        <a href="./preuves/ac33-03.pdf" target="_blank" class="ac-preuve">
+                            📂 Voir la preuve
+                        </a>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ════════════════════════════════
+                 COMPÉTENCE 4 — PRODUIRE (GC2F)
+            ════════════════════════════════ -->
+            <section class="competence-bloc gc2f" id="comp4">
+                <div class="competence-header">
+                    <div class="competence-numero">4</div>
+                    <h2 class="competence-titre">Produire l'information comptable, fiscale et sociale de l'organisation</h2>
+                    <span class="competence-tag">Spécifique GC2F</span>
                 </div>
 
-                <div class="card">
-                    <h4>Évaluer l'activité de l'organisation</h4>
-                    <ul>
-                        <li>Mettre en place une politique d'investissement cohérente.</li>
-                        <li>Mettre en place les sources de financement nécessaires.</li>
-                        <li>Établir un plan de financement équilibré.</li>
-                        <li>Réaliser la gestion de trésorerie sur le court terme.</li>
-                        <li>Réaliser à moyen et long terme des budgets d'exploitation et de trésorerie, des comptes de résultat et des bilans prévisionnels.</li>
-                    </ul>
-                    <p><em>Preuve :</em> Élaboration d'un plan d'investissement stratégique tenant compte de contraintes strictes (optimisation d'une enveloppe de 180€/mois) pour démontrer la viabilité du financement.</p>
-                    <a href="plan-investissement.pdf" target="_blank" class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Consulter la preuve</a>
+                <div class="ac-grid">
+
+                    <div class="ac-card">
+                        <span class="ac-code">AC34.01 GC2F</span>
+                        <h3 class="ac-intitule">Résoudre les problèmes comptables spécifiques à l'évaluation des actifs et passifs et à la détermination des charges et produits dans une organisation</h3>
+                        <p class="ac-description">[Décrivez ici la situation professionnelle ou le projet qui illustre cet apprentissage.]</p>
+                        <a href="./preuves/ac34-01.pdf" target="_blank" class="ac-preuve">
+                            📂 Voir la preuve
+                        </a>
+                    </div>
+
+                    <div class="ac-card">
+                        <span class="ac-code">AC34.02 GC2F</span>
+                        <h3 class="ac-intitule">Appliquer les règles comptables, fiscales et sociales adaptées à l'organisation</h3>
+                        <p class="ac-description">[Décrivez ici la situation professionnelle ou le projet qui illustre cet apprentissage.]</p>
+                        <a href="./preuves/ac34-02.pdf" target="_blank" class="ac-preuve">
+                            📂 Voir la preuve
+                        </a>
+                    </div>
+
+                    <div class="ac-card">
+                        <span class="ac-code">AC34.03 GC2F</span>
+                        <h3 class="ac-intitule">Réaliser un diagnostic et/ou un audit pour apporter des conseils</h3>
+                        <p class="ac-description">[Décrivez ici la situation professionnelle ou le projet qui illustre cet apprentissage.]</p>
+                        <a href="./preuves/ac34-03.pdf" target="_blank" class="ac-preuve">
+                            📂 Voir la preuve
+                        </a>
+                    </div>
+
+                    <div class="ac-card">
+                        <span class="ac-code">AC34.04 GC2F</span>
+                        <h3 class="ac-intitule">Sécuriser l'information comptable, fiscale et sociale produite</h3>
+                        <p class="ac-description">[Décrivez ici la situation professionnelle ou le projet qui illustre cet apprentissage.]</p>
+                        <a href="./preuves/ac34-04.pdf" target="_blank" class="ac-preuve">
+                            📂 Voir la preuve
+                        </a>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ════════════════════════════════
+                 COMPÉTENCE 5 — ÉVALUER (GC2F)
+            ════════════════════════════════ -->
+            <section class="competence-bloc gc2f" id="comp5">
+                <div class="competence-header">
+                    <div class="competence-numero">5</div>
+                    <h2 class="competence-titre">Évaluer l'activité de l'organisation</h2>
+                    <span class="competence-tag">Spécifique GC2F</span>
                 </div>
 
-            </div>
-        </section>
+                <div class="ac-grid">
+
+                    <div class="ac-card">
+                        <span class="ac-code">AC35.01 GC2F</span>
+                        <h3 class="ac-intitule">Mettre en place une politique d'investissement cohérente</h3>
+                        <p class="ac-description">[Décrivez ici la situation professionnelle ou le projet qui illustre cet apprentissage.]</p>
+                        <a href="./preuves/ac35-01.pdf" target="_blank" class="ac-preuve">
+                            📂 Voir la preuve
+                        </a>
+                    </div>
+
+                    <div class="ac-card">
+                        <span class="ac-code">AC35.02 GC2F</span>
+                        <h3 class="ac-intitule">Mettre en place les sources de financement nécessaires</h3>
+                        <p class="ac-description">[Décrivez ici la situation professionnelle ou le projet qui illustre cet apprentissage.]</p>
+                        <a href="./preuves/ac35-02.pdf" target="_blank" class="ac-preuve">
+                            📂 Voir la preuve
+                        </a>
+                    </div>
+
+                    <div class="ac-card">
+                        <span class="ac-code">AC35.03 GC2F</span>
+                        <h3 class="ac-intitule">Établir un plan de financement équilibré</h3>
+                        <p class="ac-description">[Décrivez ici la situation professionnelle ou le projet qui illustre cet apprentissage.]</p>
+                        <a href="./preuves/ac35-03.pdf" target="_blank" class="ac-preuve">
+                            📂 Voir la preuve
+                        </a>
+                    </div>
+
+                    <div class="ac-card">
+                        <span class="ac-code">AC35.04 GC2F</span>
+                        <h3 class="ac-intitule">Réaliser la gestion de trésorerie sur le court terme</h3>
+                        <p class="ac-description">[Décrivez ici la situation professionnelle ou le projet qui illustre cet apprentissage.]</p>
+                        <a href="./preuves/ac35-04.pdf" target="_blank" class="ac-preuve">
+                            📂 Voir la preuve
+                        </a>
+                    </div>
+
+                    <div class="ac-card">
+                        <span class="ac-code">AC35.05 GC2F</span>
+                        <h3 class="ac-intitule">Réaliser à moyen et long terme des budgets d'exploitation et de trésorerie, des comptes de résultat et des bilans prévisionnels</h3>
+                        <p class="ac-description">[Décrivez ici la situation professionnelle ou le projet qui illustre cet apprentissage.]</p>
+                        <a href="./preuves/ac35-05.pdf" target="_blank" class="ac-preuve">
+                            📂 Voir la preuve
+                        </a>
+                    </div>
+
+                    <div class="ac-card">
+                        <span class="ac-code">AC35.06 GC2F</span>
+                        <h3 class="ac-intitule">Évaluer les résultats et les performances de l'organisation par le contrôle budgétaire</h3>
+                        <p class="ac-description">[Décrivez ici la situation professionnelle ou le projet qui illustre cet apprentissage.]</p>
+                        <a href="./preuves/ac35-06.pdf" target="_blank" class="ac-preuve">
+                            📂 Voir la preuve
+                        </a>
+                    </div>
+
+                </div>
+            </section>
+
+        </div><!-- /.portfolio-competences -->
     </main>
-    
+
     <footer class="glass-panel">
         <div><span style="font-weight: 700; color: var(--dark-blue);">PORTFOLIO</span> &copy; 2026 - BUT GEA GC2F</div>
         <div style="display: flex; gap: 1.5rem; align-items: center;">
@@ -128,10 +494,9 @@
     </footer>
 
     <script>
-        // 1. Script pour le Menu Burger (déjà existant)
+        // Menu burger
         const burger = document.querySelector('.burger-menu');
         const nav = document.querySelector('.nav-menu');
-
         if (burger) {
             burger.addEventListener('click', () => {
                 nav.classList.toggle('active');
@@ -139,32 +504,24 @@
             });
         }
 
-        // 2. NOUVEAU SCRIPT : Animation des cartes au défilement
-        const cards = document.querySelectorAll('.card');
-        
-        // Options : l'animation se déclenche quand on voit 10% de la carte
-        const observerOptions = {
-            threshold: 0.1, 
-            rootMargin: "0px 0px -20px 0px"
-        };
-
-        const cardObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                // Si la carte entre dans l'écran
+        // Animation au scroll des cartes AC
+        const acCards = document.querySelectorAll('.ac-card');
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach((entry, i) => {
                 if (entry.isIntersecting) {
-                    // On ajoute la classe "visible" (qui déclenche le CSS)
-                    entry.target.classList.add('visible');
-                    // On arrête d'observer cette carte (l'animation ne se joue qu'une fois)
-                    observer.unobserve(entry.target);
+                    // Délai en cascade pour les cartes d'une même grille
+                    const siblings = [...entry.target.parentElement.children];
+                    const index = siblings.indexOf(entry.target);
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, index * 80);
+                    obs.unobserve(entry.target);
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1, rootMargin: '0px 0px -20px 0px' });
 
-        // On applique l'observateur à toutes les cartes de la page
-        cards.forEach(card => {
-            cardObserver.observe(card);
-        });
+        acCards.forEach(card => observer.observe(card));
     </script>
-    
+
 </body>
 </html>
